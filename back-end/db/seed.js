@@ -1,4 +1,4 @@
-const DB = require('../models');
+const DB = require('../models').models;
 
 const seedUser1 = {
 	username: 'Downslope Brewing', 
@@ -44,7 +44,8 @@ const seedBeers1 = [
 			1 oz. (28 g) Tettnang or Santiam hops (aroma)\n
 			0.25 tsp. (1 g) powdered Irish moss\n
 			American Ale yeast or White Labs Cry Havoc yeast\n
-			0.75 cup (175 mL) corn sugar or 1.25 cup (300 mL) dried malt extract (for bottling)'`
+			0.75 cup (175 mL) corn sugar or 1.25 cup (300 mL) dried malt extract (for bottling)`,
+			userId: ''
 	},
 	{
 		photoUrl: 'http://www.iconarchive.com/download/i97927/flat-icons.com/flat/Beer.ico', 
@@ -62,7 +63,8 @@ const seedBeers1 = [
 			1 oz. (28 g) Tettnang or Santiam hops (aroma)\n
 			0.25 tsp. (1 g) powdered Irish moss\n
 			American Ale yeast or White Labs Cry Havoc yeast\n
-			0.75 cup (175 mL) corn sugar or 1.25 cup (300 mL) dried malt extract (for bottling)'`
+			0.75 cup (175 mL) corn sugar or 1.25 cup (300 mL) dried malt extract (for bottling)`,
+			userId: ''
 	},
 	{
 		photoUrl: 'http://www.iconarchive.com/download/i97927/flat-icons.com/flat/Beer.ico', 
@@ -80,7 +82,8 @@ const seedBeers1 = [
 			1 oz. (28 g) Tettnang or Santiam hops (aroma)\n
 			0.25 tsp. (1 g) powdered Irish moss\n
 			American Ale yeast or White Labs Cry Havoc yeast\n
-			0.75 cup (175 mL) corn sugar or 1.25 cup (300 mL) dried malt extract (for bottling)'`
+			0.75 cup (175 mL) corn sugar or 1.25 cup (300 mL) dried malt extract (for bottling)`,
+			userId: ''
 	}
 ];
 
@@ -101,7 +104,8 @@ const seedBeers2 = [
 			1 oz. (28 g) Tettnang or Santiam hops (aroma)\n
 			0.25 tsp. (1 g) powdered Irish moss\n
 			American Ale yeast or White Labs Cry Havoc yeast\n
-			0.75 cup (175 mL) corn sugar or 1.25 cup (300 mL) dried malt extract (for bottling)'`
+			0.75 cup (175 mL) corn sugar or 1.25 cup (300 mL) dried malt extract (for bottling)`,
+			userId: ''
 	},
 	{
 		photoUrl: 'http://www.iconarchive.com/download/i97927/flat-icons.com/flat/Beer.ico', 
@@ -119,7 +123,8 @@ const seedBeers2 = [
 			1 oz. (28 g) Tettnang or Santiam hops (aroma)\n
 			0.25 tsp. (1 g) powdered Irish moss\n
 			American Ale yeast or White Labs Cry Havoc yeast\n
-			0.75 cup (175 mL) corn sugar or 1.25 cup (300 mL) dried malt extract (for bottling)'`
+			0.75 cup (175 mL) corn sugar or 1.25 cup (300 mL) dried malt extract (for bottling)`,
+			userId: ''
 	},
 	{
 		photoUrl: 'http://www.iconarchive.com/download/i97927/flat-icons.com/flat/Beer.ico', 
@@ -137,7 +142,8 @@ const seedBeers2 = [
 			1 oz. (28 g) Tettnang or Santiam hops (aroma)\n
 			0.25 tsp. (1 g) powdered Irish moss\n
 			American Ale yeast or White Labs Cry Havoc yeast\n
-			0.75 cup (175 mL) corn sugar or 1.25 cup (300 mL) dried malt extract (for bottling)'`
+			0.75 cup (175 mL) corn sugar or 1.25 cup (300 mL) dried malt extract (for bottling)`,
+			userId: ''
 	}
 ];
 
@@ -147,11 +153,15 @@ function createUser(userInfo, beers){
 	return DB.User.create(userInfo)
 		.then(user => {
 			beers.forEach(beer => {
+				console.log(user.id);
 				beer.userId = user.id; /* associate the beer to a user */
 			});
-			return DB.Beer.bulkcreate(beers);
+			DB.Beer.bulkCreate(beers);
 		});
 }
 
+createUser(seedUser1, seedBeers1);
+createUser(seedUser2, seedBeers2);
+createUser(seedUser3, []);
 
 
