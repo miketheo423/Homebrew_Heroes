@@ -6,15 +6,14 @@ module.exports = (sequelize, Sequelize) => {
 		lastName: Sequelize.STRING,
 		zipcode: Sequelize.STRING,
 		photoUrl: Sequelize.STRING,
+		password: Sequelize.STRING,
 
 		facebook: {
 			id: Sequelize.STRING,
-			email: Sequelize.STRING
 		},
 
 		google: {
 			id: Sequelize.STRING,
-			email: Sequelize.STRING
 		}
 	});
 	return model;

@@ -23,7 +23,13 @@ const googleCallback = (req, res, next) => {
 ///////// FACEBOOK CONTROLLERS ////////
 
 const facebookLogin = (req, res, next) => {
-	let loginStrategy = passport.authenticate('facebook', {scope: 'email'});
+	let loginStrategy = passport.authenticate('facebook', {
+		scope: [
+			'profile',
+			'email'
+		]
+	});
+	return loginStrategy(req, res, next);
 };
 
 const facebookCallback = (req, res, next) => {
