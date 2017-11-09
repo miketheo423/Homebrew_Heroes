@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const routes = require('./config/routes');
+const bodyParser = require('body-parser');
 
 //CORS setup to allow other ports from this host
 
@@ -16,6 +17,10 @@ if(!process.env.DYNO) {
 		next();
 	});
 }
+
+// BODY PARSER
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/dist'));
 
