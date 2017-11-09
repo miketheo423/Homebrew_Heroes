@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+
+import { AppRoutingModule } from './app-routing.module';
+import { BeersModule } from './beers/beers.module';
+import { UsersModule } from './users/users.module';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -18,7 +23,10 @@ import { BeerCardComponent } from './beer-card/beer-card.component';
     BeerCardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    BeersModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
