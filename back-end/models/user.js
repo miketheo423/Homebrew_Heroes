@@ -5,7 +5,17 @@ module.exports = (sequelize, Sequelize) => {
 		firstName: Sequelize.STRING,
 		lastName: Sequelize.STRING,
 		zipcode: Sequelize.STRING,
-		photoUrl: Sequelize.STRING
+		photoUrl: Sequelize.STRING,
+
+		facebook: {
+			id: Sequelize.STRING,
+			email: Sequelize.STRING
+		},
+
+		google: {
+			id: Sequelize.STRING,
+			email: Sequelize.STRING
+		}
 	});
 	return model;
 };
