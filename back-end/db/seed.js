@@ -1,5 +1,32 @@
 const DB = require('../models');
 
+const seedUser1 = {
+	username: 'Downslope Brewing', 
+	email: 'down@slope.co',
+	firstName: 'Rick',
+	lastName: 'Sanches',
+	zipcode: '80211',
+	photoUrl: 'http://iconshow.me/media/images/ui/ios7-icons/png/128/contact.png'
+};
+
+const seedUser2 = {
+	username: 'Old Belgium', 
+	email: 'oldb@aol.com',
+	firstName: 'Mary',
+	lastName: 'White',
+	zipcode: '80211',
+	photoUrl: 'http://iconshow.me/media/images/ui/ios7-icons/png/128/contact.png'
+};
+
+const seedUser3 = {
+	username: 'Wes', 
+	email: 'wes@wes.wes',
+	firstName: 'Wes',
+	lastName: 'Wes',
+	zipcode: '80211',
+	photoUrl: 'http://iconshow.me/media/images/ui/ios7-icons/png/128/contact.png'
+};
+
 const seedBeers1 = [
 	{
 		photoUrl: 'http://www.iconarchive.com/download/i97927/flat-icons.com/flat/Beer.ico', 
@@ -113,5 +140,18 @@ const seedBeers2 = [
 			0.75 cup (175 mL) corn sugar or 1.25 cup (300 mL) dried malt extract (for bottling)'`
 	}
 ];
+
+function createUser(userInfo, beers){
+	/* This function creates a user with the given userInfo object */
+	/* It then creates all the beers in the beers array and associates them to the user */
+	return DB.User.create(userInfo)
+		.then(user => {
+			beers.forEach(beer => {
+				beer.userId = user.id; /* associate the beer to a user */
+			});
+			return DB.Beer.bulkcreate(beers);
+		});
+}
+
 
 
