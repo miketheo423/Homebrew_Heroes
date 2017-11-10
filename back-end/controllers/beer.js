@@ -3,7 +3,18 @@ const DB = require('../models').models;
 /** BEER FEED (INDEX) **/
 /* return info for beer preview cards ordered by post date */
 module.exports.index = (req, res) => {
-	res.json({"message": "index comming soon"});
+	DB.Beer.findAll({
+		order: [['createdAt', 'DESC']],
+		include: [{
+			model: DB.User,
+			attributes: ['username', 'id']
+		}],
+		attributes: ['name', 'photoUrl', 'style', 'id']
+	}).then(beers => {
+		if (!beers) res.status(500).send('Cant find beers :(');
+		res.json({beers: beers});
+	});
+
 };
 
 /** BEER SHOW **/
@@ -34,7 +45,7 @@ module.exports.update = (req, res) => {
 };
 
 /** BEER DELETE **/
-/*  */
+/* Delete the beer given in the url */
 module.exports.delete = (req, res) => {
 	DB.Beer.findById(req.params.id)
 	.then(beer => {

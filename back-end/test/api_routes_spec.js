@@ -49,7 +49,9 @@ describe('Beer API', () => {
 		it('should return an object', () => {
 			expect(responseBody).to.be.an('object');
 		});
-		it('should return multiple beers');
+		it('should return multiple beers', () => {
+			expect(responseBody.beers.length).to.be.above(1);
+		});
 	});
 
 	/* create and delete route */
