@@ -12,6 +12,7 @@ import { SignUpModalComponent } from './sign-up-modal/sign-up-modal.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { BeerFeedPageComponent } from './beer-feed-page/beer-feed-page.component';
 import { BeerCardComponent } from './beer-card/beer-card.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BeerCardComponent } from './beer-card/beer-card.component';
     BrowserModule,
     AppRoutingModule,
     BeersModule,
-    UsersModule
+    UsersModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
