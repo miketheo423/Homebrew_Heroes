@@ -29,7 +29,7 @@ const seedUser3 = {
 
 const seedBeers1 = [
 	{
-		photoUrl: 'http://www.iconarchive.com/download/i97927/flat-icons.com/flat/Beer.ico', 
+		photoUrl: 'https://cdn2.justwineapp.com/assets/article/2017/05/photo-pint-beer-free-stock-image-royalty-free-instagram-social-media.jpg', 
 		name: 'Bears Breath',
 		style: 'Stout',
 		abv: '7.2',
@@ -39,7 +39,7 @@ const seedBeers1 = [
 		userId: ''
 	},
 	{
-		photoUrl: 'http://www.iconarchive.com/download/i97927/flat-icons.com/flat/Beer.ico', 
+		photoUrl: 'http://www.publicdomainpictures.net/pictures/110000/velka/glass-of-beer.jpg', 
 		name: 'Dancing Unicorn',
 		style: 'Gose',
 		abv: '4.5',
@@ -49,7 +49,7 @@ const seedBeers1 = [
 		userId: ''
 	},
 	{
-		photoUrl: 'http://www.iconarchive.com/download/i97927/flat-icons.com/flat/Beer.ico', 
+		photoUrl: 'https://cdn2.justwineapp.com/assets/article/2017/05/photo-pint-beer-free-stock-image-royalty-free-instagram-social-media.jpg', 
 		name: 'Bong Water',
 		style: 'IPA',
 		abv: '6.2',
@@ -62,7 +62,7 @@ const seedBeers1 = [
 
 const seedBeers2 = [
 	{
-		photoUrl: 'http://www.iconarchive.com/download/i97927/flat-icons.com/flat/Beer.ico', 
+		photoUrl: 'http://www.publicdomainpictures.net/pictures/110000/velka/glass-of-beer.jpg', 
 		name: 'Mowhawk Black IPA',
 		style: 'IPA',
 		abv: '7.2',
@@ -72,7 +72,7 @@ const seedBeers2 = [
 		userId: ''
 	},
 	{
-		photoUrl: 'http://www.iconarchive.com/download/i97927/flat-icons.com/flat/Beer.ico', 
+		photoUrl: 'https://cdn2.justwineapp.com/assets/article/2017/05/photo-pint-beer-free-stock-image-royalty-free-instagram-social-media.jpg', 
 		name: 'Budwisest',
 		style: 'Lager',
 		abv: '4.5',
@@ -82,7 +82,7 @@ const seedBeers2 = [
 		userId: ''
 	},
 	{
-		photoUrl: 'http://www.iconarchive.com/download/i97927/flat-icons.com/flat/Beer.ico', 
+		photoUrl: 'https://cdn2.justwineapp.com/assets/article/2017/05/photo-pint-beer-free-stock-image-royalty-free-instagram-social-media.jpg', 
 		name: 'Leftover Tacos',
 		style: 'Lager',
 		abv: '6.2',

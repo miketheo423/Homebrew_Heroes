@@ -9,14 +9,12 @@ const bodyParser = require('body-parser');
 //CORS setup to allow other ports from this host
 
 //Only needed if not on Heroku/prod
-if(!process.env.DYNO) {
-	app.use((req, res, next) => {
-		res.header("Access-Control-Origin", "http://localhost:4200");
-		res.header("Access-Control-Allow-Headers", "Origin X-Requested-Wtih, Content-Type, Accept");
-		res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
-		next();
-	});
-}
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE");
+  next();
+});
 
 // BODY PARSER
 app.use(bodyParser.urlencoded({ extended: true }));

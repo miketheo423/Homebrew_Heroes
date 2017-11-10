@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BeersModule } from './beers/beers.module';
 import { UsersModule } from './users/users.module';
 
+import { BeerFeedService } from './beer-feed-page/beer-feed.service';
+
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SignUpModalComponent } from './sign-up-modal/sign-up-modal.component';
@@ -28,9 +30,12 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     AppRoutingModule,
     BeersModule,
     UsersModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    BeerFeedService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
