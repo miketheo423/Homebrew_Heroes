@@ -11,16 +11,20 @@ module.exports = function(passport) {
 		done(null, user.id);
 	});
 
-	passport.deserializeUser((id, done) => {
-		console.log('deserializeUser');
-		DB.User.findById(id).then((user) => {
-			if(user) {
+	// passport.deserializeUser((id, done) => {
+	// 	console.log('deserializeUser');
+	// 	DB.User.findById(id).then((user) => {
+	// 		if(user) {
 				
-				done(null, user.get());
-			} else {
-				done(user.errors, null);
-			}
-		});
+	// 			done(null, user.get());
+	// 		} else {
+	// 			done(user.errors, null);
+	// 		}
+	// 	});
+	// });
+
+	passport.deserializeUser((obj, done) => {
+		done(null, obj);
 	});
 
 	/////////////////////
@@ -38,10 +42,9 @@ module.exports = function(passport) {
 				console.log(err);
 				return done(err);
 			} 
-
 			if (user) {
 				console.log('logging in user');
-				//
+				
 				return done(null, user);
 			} else {
 				console.log('creating new user');
