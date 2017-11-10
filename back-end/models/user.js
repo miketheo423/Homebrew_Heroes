@@ -7,14 +7,8 @@ module.exports = (sequelize, Sequelize) => {
 		zipcode: Sequelize.STRING,
 		photoUrl: Sequelize.STRING,
 		password: Sequelize.STRING,
-
-		facebook: {
-			id: Sequelize.STRING,
-		},
-
-		google: {
-			id: Sequelize.STRING,
-		}
+		facebookId: Sequelize.STRING,
+		googleId: Sequelize.STRING,
 	});
 	return model;
 };

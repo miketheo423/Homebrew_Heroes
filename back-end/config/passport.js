@@ -1,21 +1,28 @@
 const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
-let User = require('../models/user');
-const bCrypt = require('brcrypt-nodejs');
+const bCrypt = require('bcrypt-nodejs');
+const DB = require('../models').models;
+require('dotenv').config();
 
 module.exports = function(passport) {
 
-	passport.serializUser((user, done) => {
+	passport.serializeUser((user, done) => {
+		console.log('serializeUser');
 		done(null, user.id);
 	});
 
 	passport.deserializeUser((id, done) => {
-		User.findbyId(id, (err, user) => {
-			done(err, user);
+		console.log('deserializeUser');
+		DB.User.findById(id).then((user) => {
+			console.log(user);
+			if(user) {
+				done(null, user.get());
+			} else {
+				done(user.errors, null);
+			}
 		});
 	});
-
 
 	/////////////////////
 	// Google Strategy //
@@ -26,17 +33,24 @@ module.exports = function(passport) {
 		clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 		callbackURL: process.env.BASE_URL + '/auth/google/callback',
 		passReqToCallback: true
-	}, (request, profile, done) => {
-		User.findOne({where: {'google.id': profile.id}}, (err, user) => {
-			if (err) return done(err);
+	}, (request, at, rt, profile, done) => {
+		DB.User.find({where: {'googleId': profile.id}}).then((user, err) => {
+			console.log('user: ');
+			console.log(user);
+			if (err) {
+				console.log(err);
+				return done(err);
+			} 
 
 			if (user) {
 				console.log('logging in user');
+				//
+				return done(null, user);
 			} else {
 				console.log('creating new user');
-				User.create({
+				DB.User.create({
 					email: profile.email,
-					google: {id: profile.id}
+					googleId: profile.id
 				}, (err, user) => {
 					if (err) return console.log(err);
 					console.log('new user created');
@@ -49,32 +63,32 @@ module.exports = function(passport) {
 
 	///////////////////////
 	// Facebook Strategy //
-	///////////////////////
+	// ///////////////////////
 
-	passport.use(new FacebookStrategy ({
-		clientID: process.env.FACEBOOK_CLIENT_ID,
-		clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-		callbackURL: process.env.BASE_URL + '/auth/facebook/callback',
-		passReqToCallback: true
-	}, (request, profile, done) => {
-		User.findOne({where: {'facebook.id': profile.id}}, (err, user) => {
-			if (err) return done(err);
+	// passport.use(new FacebookStrategy ({
+	// 	clientID: process.env.FACEBOOK_CLIENT_ID,
+	// 	clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+	// 	callbackURL: process.env.BASE_URL + '/auth/facebook/callback',
+	// 	passReqToCallback: true
+	// }, (request, profile, done) => {
+	// 	User.findOne({where: {'facebook.id': profile.id}}, (err, user) => {
+	// 		if (err) return done(err);
 
-			if (user) {
-				console.log('logging in user');
-			} else {
-				console.log('creating new user');
-				User.create({
-					email: profile.emails[0].value,
-					facebook: {id: profile.id}
-				}, (err, user) => {
-					if (err) return console.log(err);
-					console.log('new user created');
-					return done(null, user);
-				});
-			}
-		});
-	}));
+	// 		if (user) {
+	// 			console.log('logging in user');
+	// 		} else {
+	// 			console.log('creating new user');
+	// 			User.create({
+	// 				email: profile.emails[0].value,
+	// 				facebook: {id: profile.id}
+	// 			}, (err, user) => {
+	// 				if (err) return console.log(err);
+	// 				console.log('new user created');
+	// 				return done(null, user);
+	// 			});
+	// 		}
+	// 	});
+	// }));
 
 	////////////////////
 	// Local Strategy //
@@ -92,7 +106,7 @@ module.exports = function(passport) {
 				let generateHash = (password) => {
 					return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
 				};
-				User.findOne({ where: { email: email }}).then((user) => {
+				DB.User.findOne({ where: { email: email }}).then((user) => {
 					if (user) {
 						return done(null, false);
 					} else {
@@ -102,7 +116,7 @@ module.exports = function(passport) {
 							email: email,
 							password: userPassword
 						};
-				User.create(data).then((newUser, create) => {
+				DB.User.create(data).then((newUser, create) => {
 					if (!newUser) {
 						return done(null, false);
 					}
@@ -127,7 +141,7 @@ module.exports = function(passport) {
 				let isValidPassword = (userpass, password) => {
 					return bCrypt.compareSync(password, userpass);
 				};
-			User.findOne({ where: { email: email}}).then((user) => {
+			DB.User.findOne({ where: { email: email}}).then((user) => {
 				if (!user) {
 					return done(null, false);
 				}

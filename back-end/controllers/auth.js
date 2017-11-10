@@ -3,19 +3,23 @@ const passport = require('passport');
 //////// GOOGLE CONTROLLERS ////////
 
 const googleLogin = (req, res, next) => {
+	console.log(process.env.GOOGLE_CLIENT_ID);
+	console.log(process.env.GOOGLE_CLIENT_SECRET);
+	console.log(process.env.BASE_URL + '/auth/google/callback');
 	let loginStrategy = passport.authenticate('google', {
 			scope: [
 				'profile',
 				'email'
 			]
 	});
+	console.log(loginStrategy);
 	return loginStrategy(req, res, next);
 };
 
 const googleCallback = (req, res, next) => {
 	let authCallbackStrategy = passport.authenticate('google', {
 		successRedirect: '/',
-		failureRedirect: '/welcome'
+		failureRedirect: '/?ERROR=FAM'
 	});
 	return authCallbackStrategy(req, res, next);
 };

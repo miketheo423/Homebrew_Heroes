@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const controllers = require('../controllers');
+const authControllers = require('../controllers/auth');
 
 
 /////////////////////
@@ -12,32 +12,32 @@ const controllers = require('../controllers');
 ////// Google Routes ///////
 
 router.route('/auth/google')
-				.get(controllers.auth.googleLogin);
+				.get(authControllers.googleLogin);
 
 router.route('/auth/google/callback')
-				.get(controllers.auth.googleCallback);
+				.get(authControllers.googleCallback);
 
 
 ////// Facebook Routes ///////
 
 router.route('/auth/facebook')
-					.get(controllers.auth.facebookLogin);
+					.get(authControllers.facebookLogin);
 
 router.route('/auth/facebook/callback')
-				.get(controllers.auth.facebookCallback);
+				.get(authControllers.facebookCallback);
 
 
 //////// Local User Routes ///////
 router.route('/auth/login')
-				.post(controllers.auth.postLogin);
+				.post(authControllers.postLogin);
 
 router.route('/auth/signup')
-				 .post(controllers.auth.postSignup);
+				 .post(authControllers.postSignup);
 
 
 // Logout Route
 router.route('/auth/logout')
-				.get(controllers.auth/getLogout);
+				.get(authControllers.getLogout);
 
 
 /////////////////////
