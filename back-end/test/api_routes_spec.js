@@ -54,10 +54,12 @@ describe('Beer API', () => {
 		});
 	});
 
-	/* create and delete route */
+	/* create, update and delete route */
 	describe('create and delete routes', () => {
 		let createResponse;
 		let createResponseBody;
+		let updateResponse;
+		let updateResponseBody;
 		let deleteResponse;
 		let deleteResponseBody;
 		let beerId;
@@ -72,26 +74,36 @@ describe('Beer API', () => {
 			userId: 1
 		};
 
-		before((done) => {
+		before((done) => { /* Add, Update, and Delete beer */
 			/* add a beer */
 			request({
 				url: 'http://localhost:3000/api/beers',
 				method: 'post',
 				json: newBeer
-				}, (err, res, body) => {
+			}, (err, res, body) => {
 				if (err) console.log(err);
 				createResponse = res;
 				createResponseBody = body;
 				beerId = createResponseBody.id;
-				console.log('ID: ' + beerId);
-				/* delete the beer */
-				request.delete('http://localhost:3000/api/beers/' + beerId, (err, res, body) => {
-					deleteResponse = res;
-					deleteResponseBody = JSON.parse(body);
-					done();
+
+				/* update beer */
+				request({
+					url: 'http://localhost:3000/api/beers/' + beerId,
+					method: 'put',
+					json: {style: 'Lager'}
+				}, (err, res, body) => {
+					if (err) console.log(err);
+					updateResponse = res;
+					updateResponseBody = body;
+
+					/* delete the beer */
+					request.delete('http://localhost:3000/api/beers/' + beerId, (err, res, body) => {
+						deleteResponse = res;
+						deleteResponseBody = JSON.parse(body);
+						done();
+					});
 				});
-			});
-			
+			});		
 		});
 
 		describe('create beer', () => {
@@ -109,6 +121,24 @@ describe('Beer API', () => {
 			});
 			it('should have an id', () => {
 				expect(createResponseBody).to.have.property('id');
+			});
+		});
+
+		describe('update beer', () => {
+			it('should have a satus code of 200', () => {
+				expect(updateResponse.statusCode).to.equal(200);
+			});
+			it('should return an object', () => {
+				expect(updateResponseBody).to.be.an('object');
+			});
+			it('should return the object with an updated style prop', () => {
+				expect(updateResponseBody.style).to.equal('Lager');
+			});
+			it('should keep the same name', () => {
+				expect(updateResponseBody.name).to.equal('Test Beer');
+			});
+			it('should keep the same id', () => {
+				expect(updateResponseBody.id).to.equal(beerId);
 			});
 		});
 
