@@ -17,7 +17,7 @@ module.exports.show = (req, res) => {
 };
 
 /** BEER CREATE **/
-/* Create a new beer */
+/* Create a new beer and respond with that beer */
 module.exports.create = (req, res) => {
 	DB.Beer.create(req.body)
 	.then(beer => {
@@ -36,5 +36,10 @@ module.exports.update = (req, res) => {
 /** BEER DELETE **/
 /*  */
 module.exports.delete = (req, res) => {
-	res.json({"message": "delete comming soon"});
+	DB.Beer.findById(req.params.id)
+	.then(beer => {
+		if (!beer) res.status(403).send('Beer not found!');
+		console.log('Deleting a beer!');
+		return beer.destroy();
+	}).then(res.json({"message":"Beer deleted"}))
 };
