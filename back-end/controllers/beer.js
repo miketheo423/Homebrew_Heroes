@@ -39,9 +39,14 @@ module.exports.create = (req, res) => {
 };
 
 /** BEER UPDATE **/
-/*  */
+/* update beer by ID and return the updated */
 module.exports.update = (req, res) => {
-	res.json({"message": "update comming soon"});
+	DB.Beer.findById(req.params.id)
+	.then(beer => {
+		return beer.updateAttributes(req.body);
+	}).then(beer => {
+		res.json(beer);
+	});
 };
 
 /** BEER DELETE **/
