@@ -16,7 +16,7 @@ const googleLogin = (req, res, next) => {
 const googleCallback = (req, res, next) => {
 	let authCallbackStrategy = passport.authenticate('google', {
 		successRedirect: process.env.FE_BASE_URL,
-		failureRedirect: '/?ERROR=FAM'
+		failureRedirect: process.env.FE_BASE_URL + '/welcome'
 	});
 	return authCallbackStrategy(req, res, next);
 };
@@ -35,8 +35,8 @@ const facebookLogin = (req, res, next) => {
 
 const facebookCallback = (req, res, next) => {
 		let authCallbackStrategy = passport.authenticate('facebook', {
-		successRedirect: '/',
-		failureRedirect: '/welcome'
+		successRedirect: process.env.FE_BASE_URL,
+		failureRedirect: process.env.FE_BASE_URL + '/welcome'
 	});
 	return authCallbackStrategy(req, res, next);
 };
@@ -47,8 +47,8 @@ const facebookCallback = (req, res, next) => {
 // POST /auth/signup 
 const postSignup = (req, res, next) => {
 	let signupStrategy = passport.authenticate('local-signup', {
-		successRedirect: '/',
-		failureRedirect: FE_BASE_URL + '/welcome'
+		successRedirect: process.env.FE_BASE_URL,
+		failureRedirect: process.env.FE_BASE_URL + '/welcome'
 	});
 	return signupStrategy(req, res, next);
 };
@@ -56,8 +56,8 @@ const postSignup = (req, res, next) => {
 // POST /auth/login 
 const postLogin = (req, res, next) => {
 	let loginStrategy = passport.authenticate('local-login', {
-		successRedirect: '/',
-		failureRedirect: FE_BASE_URL + '/welcome'
+		successRedirect: process.env.FE_BASE_URL,
+		failureRedirect: process.env.FE_BASE_URL + '/welcome'
 	});
 	return loginStrategy(req, res, next);
 };
