@@ -37,6 +37,7 @@ require('./config/passport')(passport);
 // Tracks the current user
 app.use((req, res, next) => {
 	res.locals.currentUser = req.user;
+	console.log(req.user);
 	next();
 });
 

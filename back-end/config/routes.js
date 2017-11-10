@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const authControllers = require('../controllers/auth');
+const userControllers = require('../controllers/users');
 
 const beerController = require('../controllers/beer');
 
@@ -46,8 +47,15 @@ router.route('/auth/logout')
 /// User Routes /////
 /////////////////////
 
+function authenticatedUser(req, res, next) {
+	// If user is authenticated then continue execution
+	if (req.isAuthenticated()) return next();
+	// Otherwise direct request back to the homepage
+	res.send('Error, user not signed in');
+}
 
-
+router.route('/auth/currentUser')
+				.get(authenticatedUser, userControllers.getInfo);
 
 
 

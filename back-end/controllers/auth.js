@@ -15,7 +15,7 @@ const googleLogin = (req, res, next) => {
 
 const googleCallback = (req, res, next) => {
 	let authCallbackStrategy = passport.authenticate('google', {
-		successRedirect: '/',
+		successRedirect: process.env.FE_BASE_URL,
 		failureRedirect: '/?ERROR=FAM'
 	});
 	return authCallbackStrategy(req, res, next);
@@ -48,17 +48,18 @@ const facebookCallback = (req, res, next) => {
 const postSignup = (req, res, next) => {
 	let signupStrategy = passport.authenticate('local-signup', {
 		successRedirect: '/',
-		failureRedirect: '/welcome'
+		failureRedirect: FE_BASE_URL + '/welcome'
 	});
-	return signupStrategy(request, response, next);
+	return signupStrategy(req, res, next);
 };
 
 // POST /auth/login 
 const postLogin = (req, res, next) => {
 	let loginStrategy = passport.authenticate('local-login', {
 		successRedirect: '/',
-		failureRedirect: '/welcome'
+		failureRedirect: FE_BASE_URL + '/welcome'
 	});
+	return loginStrategy(req, res, next);
 };
 
 // GET /auth/logout

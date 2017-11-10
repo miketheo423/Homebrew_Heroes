@@ -8,7 +8,7 @@ require('dotenv').config();
 module.exports = function(passport) {
 
 	passport.serializeUser((user, done) => {
-		done(null, user.id);
+		done(null, user);
 	});
 
 	// passport.deserializeUser((id, done) => {
@@ -49,10 +49,10 @@ module.exports = function(passport) {
 			} else {
 				console.log('creating new user');
 				DB.User.create({
+					username: 'brewer' + Math.floor(Math.random()*100000),
 					email: profile.email,
 					googleId: profile.id
-				}, (err, user) => {
-					if (err) return console.log(err);
+				}).then((user) => {
 					console.log('new user created');
 					return done(null, user);
 				});
@@ -98,11 +98,10 @@ module.exports = function(passport) {
 	// Local signup
 	passport.use('local-signup', new LocalStrategy (
 			{
-				usernameField : 'username',
-				emailField : 'email',
+				usernameField : 'email',
 				passwordField : 'password',
 				passReqToCallback : true
-			}, (req, username, email, password, done) => {
+			}, (req, email, password, done) => {
 				let generateHash = (password) => {
 					return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
 				};
@@ -112,7 +111,7 @@ module.exports = function(passport) {
 					} else {
 						let userPassword = generateHash(password);
 						let data = {
-							username: username,
+							username: 'brewer' + Math.floor(Math.random()*100000),
 							email: email,
 							password: userPassword
 						};
@@ -132,12 +131,11 @@ module.exports = function(passport) {
 	// Local login
 	passport.use('local-login', new LocalStrategy (
 			{
-				usernameField: 'username',
-				emailField: 'email',
+				usernameField: 'email',
 				passwordField: 'password',
 				passReqToCallback: true
-			}, (req, username, email, password, done) => {
-				let User = user;
+			}, (req, email, password, done) => {
+				// let User = user;
 				let isValidPassword = (userpass, password) => {
 					return bCrypt.compareSync(password, userpass);
 				};
@@ -155,5 +153,5 @@ module.exports = function(passport) {
 				return done(null, false);
 			});
 		}
-));
+	));
 };
