@@ -1,0 +1,7 @@
+.row {
+	margin: 0;
+	background-color: blue;
+	height: 2%;
+	width: 100%;
+	display: table-cell;
+}
