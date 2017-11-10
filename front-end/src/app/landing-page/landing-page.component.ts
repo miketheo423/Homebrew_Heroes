@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import * as jQuery from 'jquery';
+
+
+
+
+
 
 @Component({
   selector: 'app-landing-page',
@@ -6,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
+    
 
   constructor() { }
 
@@ -13,3 +20,11 @@ export class LandingPageComponent implements OnInit {
   }
 
 }
+
+    
+
+
+
+
+
+
