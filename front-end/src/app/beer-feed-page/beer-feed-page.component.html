@@ -40,41 +40,17 @@
 
   <div class="container card-main-css">
     <div class="row">
-      <div class="col-md-4 col-sm-6 col-xs-12">
+      <div *ngFor="let beer of beerArray" class="col-md-4 col-sm-6 col-xs-12">
         <div class="card">
           <div class="image">
-          	<img src="https://static.pexels.com/photos/459392/pexels-photo-459392.jpeg" width="100%">
+          	<img src={{beer.photoUrl}} width="100%">
           </div>
           <div class="text">
-       	<div class="go-to">&#43;</div>
-			<h2 class="beer-name">Grapefruit Pale Ale</h2>
-            <h3 class="beer-style">IPA</h3>
-        </div>
-         </div>
-      </div>
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="card">
-          <div class="image">
-          	<img src="https://cdn2.justwineapp.com/assets/article/2017/05/photo-pint-beer-free-stock-image-royalty-free-instagram-social-media.jpg" width="100%">
-          </div>
-          <div class="text">
-            <div class="go-to">&#43;</div>
-			<h2 class="beer-name">Grapefruit Pale Ale</h2>
-            <h3 class="beer-style">IPA</h3>
+       	    <div class="go-to">&#43;</div>
+			      <h2 class="beer-name">{{beer.name}}</h2>
+            <h3 class="beer-style">{{beer.style}}</h3>
           </div>
         </div>
-      </div>
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="card">
-          <div class="image">
-            <img src="http://www.publicdomainpictures.net/pictures/110000/velka/glass-of-beer.jpg" width="100%">
-          </div>
-          <div class="text">
-            <div class="go-to">&#43;</div>
-			<h2 class="beer-name">Grapefruit Pale Ale</h2>
-            <h3 class="beer-style">IPA</h3>
-          </div>
-        </div>       
       </div>
       </div>
     </div>
