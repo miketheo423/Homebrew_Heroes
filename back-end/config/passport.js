@@ -38,10 +38,8 @@ module.exports = function(passport) {
 		passReqToCallback: true
 	}, (request, at, rt, profile, done) => {
 		DB.User.find({where: {'googleId': profile.id}}).then((user, err) => {
-			if (err) {
-				console.log(err);
-				return done(err);
-			} 
+			if (err)  return done(err);
+
 			if (user) {
 				console.log('logging in user');
 				
@@ -65,30 +63,31 @@ module.exports = function(passport) {
 	// Facebook Strategy //
 	// ///////////////////////
 
-	// passport.use(new FacebookStrategy ({
-	// 	clientID: process.env.FACEBOOK_CLIENT_ID,
-	// 	clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-	// 	callbackURL: process.env.BASE_URL + '/auth/facebook/callback',
-	// 	passReqToCallback: true
-	// }, (request, profile, done) => {
-	// 	User.findOne({where: {'facebook.id': profile.id}}, (err, user) => {
-	// 		if (err) return done(err);
+	passport.use(new FacebookStrategy ({
+		clientID: process.env.FACEBOOK_CLIENT_ID,
+		clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+		callbackURL: process.env.BASE_URL + '/auth/facebook/callback',
+	}, (at, rt, profile, done) => {
+		console.log(profile);
+		DB.User.find({where: {'facebookId': profile.id}}).then((user, err) => {
+			if (err) return done(err);
+			if (user) {
+				console.log('logging in user');
+				return done(null, user);
+			} else {
+				console.log('creating new user');
+				DB.User.create({
+					username: 'brewer' + Math.floor(Math.random()*100000),
+					facebookId: profile.id
+				}).then((user) => {
+					if (err) return console.log(err);
+					console.log('new user created');
+					return done(null, user);
+				});
+			}
+		});
+	}));
 
-	// 		if (user) {
-	// 			console.log('logging in user');
-	// 		} else {
-	// 			console.log('creating new user');
-	// 			User.create({
-	// 				email: profile.emails[0].value,
-	// 				facebook: {id: profile.id}
-	// 			}, (err, user) => {
-	// 				if (err) return console.log(err);
-	// 				console.log('new user created');
-	// 				return done(null, user);
-	// 			});
-	// 		}
-	// 	});
-	// }));
 
 	////////////////////
 	// Local Strategy //

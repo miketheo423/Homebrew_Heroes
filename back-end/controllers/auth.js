@@ -24,16 +24,15 @@ const googleCallback = (req, res, next) => {
 ///////// FACEBOOK CONTROLLERS ////////
 
 const facebookLogin = (req, res, next) => {
+	console.log('login route hit');
 	let loginStrategy = passport.authenticate('facebook', {
-		scope: [
-			'profile',
-			'email'
-		]
+		scope: 'email'
 	});
 	return loginStrategy(req, res, next);
 };
 
 const facebookCallback = (req, res, next) => {
+	console.log('callback route hit');
 		let authCallbackStrategy = passport.authenticate('facebook', {
 		successRedirect: process.env.FE_BASE_URL,
 		failureRedirect: process.env.FE_BASE_URL + '/welcome'
@@ -64,7 +63,6 @@ const postLogin = (req, res, next) => {
 
 // GET /auth/logout
 const getLogout = (req, res) => {
-	console.log(req.user);
 	req.logout();
 	res.redirect('/');
 };
