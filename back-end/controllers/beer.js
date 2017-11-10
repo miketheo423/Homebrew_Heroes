@@ -17,7 +17,7 @@ module.exports.index = (req, res) => {
 
 };
 
-/** BEER SHOW **/
+/** BEER PROFILE (SHOW) **/
 /* return a single beer info by its id and its associated user info */
 module.exports.show = (req, res) => {
 	DB.Beer.findById(req.params.id, {include: DB.User})
@@ -33,6 +33,7 @@ module.exports.create = (req, res) => {
 	DB.Beer.create(req.body)
 	.then(beer => {
 		if (!beer) res.status(500).send('Beer could not be created');
+		
 		console.log('New Beer Added!');
 		res.json(beer);
 	});
@@ -43,10 +44,9 @@ module.exports.create = (req, res) => {
 module.exports.update = (req, res) => {
 	DB.Beer.findById(req.params.id)
 	.then(beer => {
-		return beer.updateAttributes(req.body);
-	}).then(beer => {
-		res.json(beer);
-	});
+		if(!beer) res.status(404).send('Beer not found');
+		return beer.updateAttributes(req.body); /* update */
+	}).then(beer => res.json(beer)); /* resond with updated beer */
 };
 
 /** BEER DELETE **/
@@ -54,7 +54,8 @@ module.exports.update = (req, res) => {
 module.exports.delete = (req, res) => {
 	DB.Beer.findById(req.params.id)
 	.then(beer => {
-		if (!beer) res.status(403).send('Beer not found!');
+		if (!beer) res.status(404).send('Beer not found!');
+		
 		console.log('Deleting a beer!');
 		return beer.destroy();
 	}).then(res.json({"message":"Beer deleted"}))

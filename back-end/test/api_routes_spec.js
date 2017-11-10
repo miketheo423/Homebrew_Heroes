@@ -14,7 +14,6 @@ describe('Beer API', () => {
 				responseBody = JSON.parse(body);
 				done();
 			});
-			
 		});
 		it('should have a satus code of 200', () => {
 			expect(response.statusCode).to.equal(200);
@@ -41,7 +40,6 @@ describe('Beer API', () => {
 				responseBody = JSON.parse(body);
 				done();
 			});
-			
 		});
 		it('should have a satus code of 200', () => {
 			expect(response.statusCode).to.equal(200);
@@ -56,12 +54,14 @@ describe('Beer API', () => {
 
 	/* create, update and delete route */
 	describe('create and delete routes', () => {
+		/* initialize response variables */
 		let createResponse;
 		let createResponseBody;
 		let updateResponse;
 		let updateResponseBody;
 		let deleteResponse;
 		let deleteResponseBody;
+		/* initialize new beer object */
 		let beerId;
 		let newBeer = {
 			photoUrl: 'http://www.iconarchive.com/download/i97927/flat-icons.com/flat/Beer.ico', 
