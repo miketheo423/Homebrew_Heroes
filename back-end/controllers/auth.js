@@ -3,16 +3,13 @@ const passport = require('passport');
 //////// GOOGLE CONTROLLERS ////////
 
 const googleLogin = (req, res, next) => {
-	console.log(process.env.GOOGLE_CLIENT_ID);
-	console.log(process.env.GOOGLE_CLIENT_SECRET);
-	console.log(process.env.BASE_URL + '/auth/google/callback');
+
 	let loginStrategy = passport.authenticate('google', {
 			scope: [
 				'profile',
 				'email'
 			]
 	});
-	console.log(loginStrategy);
 	return loginStrategy(req, res, next);
 };
 
@@ -48,7 +45,7 @@ const facebookCallback = (req, res, next) => {
 //////// LOCAL USER CONTROLLERS /////////
 
 // POST /auth/signup 
-const postSignup = (request, response, next) => {
+const postSignup = (req, res, next) => {
 	let signupStrategy = passport.authenticate('local-signup', {
 		successRedirect: '/',
 		failureRedirect: '/welcome'
@@ -57,7 +54,7 @@ const postSignup = (request, response, next) => {
 };
 
 // POST /auth/login 
-const postLogin = (request, response, next) => {
+const postLogin = (req, res, next) => {
 	let loginStrategy = passport.authenticate('local-login', {
 		successRedirect: '/',
 		failureRedirect: '/welcome'
@@ -65,9 +62,10 @@ const postLogin = (request, response, next) => {
 };
 
 // GET /auth/logout
-const getLogout = (request, response, next) => {
-	request.logout();
-	response.redirect('/weclome');
+const getLogout = (req, res) => {
+	console.log(req.user);
+	req.logout();
+	res.redirect('/');
 };
 
 module.exports = {

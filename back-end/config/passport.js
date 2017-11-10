@@ -8,15 +8,14 @@ require('dotenv').config();
 module.exports = function(passport) {
 
 	passport.serializeUser((user, done) => {
-		console.log('serializeUser');
 		done(null, user.id);
 	});
 
 	passport.deserializeUser((id, done) => {
 		console.log('deserializeUser');
 		DB.User.findById(id).then((user) => {
-			console.log(user);
 			if(user) {
+				
 				done(null, user.get());
 			} else {
 				done(user.errors, null);
@@ -35,8 +34,6 @@ module.exports = function(passport) {
 		passReqToCallback: true
 	}, (request, at, rt, profile, done) => {
 		DB.User.find({where: {'googleId': profile.id}}).then((user, err) => {
-			console.log('user: ');
-			console.log(user);
 			if (err) {
 				console.log(err);
 				return done(err);
