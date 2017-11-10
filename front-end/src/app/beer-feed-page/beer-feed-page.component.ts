@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BeerFeedService } from './beer-feed.service';
+
 
 @Component({
   selector: 'app-beer-feed-page',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./beer-feed-page.component.css']
 })
 export class BeerFeedPageComponent implements OnInit {
+	beerArray = [];
 
-  constructor() { }
+  constructor(private beerFeedService: BeerFeedService) { }
 
   ngOnInit() {
+  	this.beerFeedService.getBeerFeed().subscribe(response => {
+  		this.beerArray = response.json().beers;
+  		console.log(this.beerArray);
+  	})
   }
 
 }
