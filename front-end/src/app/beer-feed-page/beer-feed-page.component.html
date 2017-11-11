@@ -12,7 +12,7 @@
 <section>
 	<div class="container-fluid logo-header">
 		<div class="row logo-header">
-			<div class="col-lg-6 col-xs-8 logo">Homebrew Heroes</div>
+			<div class="col-lg-6 col-xs-9 logo">Homebrew Heroes</div>
 			<div class="user col-lg-6"><i class="fa fa-user-circle fa-3x" aria-hidden="true"></i></div>
 		</div>
 	</div>
@@ -25,9 +25,9 @@
 <section>
 	<div class="container-fluid search">
 		<div class="row col-lg-12 col-xs-12">
-			<div class="col-md-auto">Search:
-				<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert brew type here">
-				<button type="submit" class="btn button-search">Submit</button>
+			<div class="col-md-auto ">Search:
+				<input type="text" class="form-control " id="formGroupExampleInput" placeholder="Insert brew type here">
+				<button type="submit" class="btn button-search">Beer me</button>
 			</div>
 		</div>
 	</div>
@@ -38,21 +38,39 @@
 <!-- Cards Section  -->
 <!--****************-->
 
-  <div class="container card-main-css">
-    <div class="row">
-      <div *ngFor="let beer of beerArray" class="col-md-4 col-sm-6 col-xs-12">
+  <div class="container">
+    <div class="row card-main-css">
+      <div *ngFor="let beer of beerArray" class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="card">
           <div class="image">
           	<img src={{beer.photoUrl}} width="100%">
           </div>
           <div class="text">
-       	    <div class="go-to">&#43;</div>
+       	    <a routerLink="beers/{{beer.id}}"  class="go-to">&#43;</a>
 			      <h2 class="beer-name">{{beer.name}}</h2>
-            <h3 class="beer-style">{{beer.style}}</h3>
+              <h3 class="beer-style">Type: {{beer.style}}</h3>
           </div>
         </div>
       </div>
       </div>
     </div>
+
+
+<!--*****************-->
+<!-- Footer Section  -->
+<!--*****************-->
+
+  <footer id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="copyright">
+            &copy; Copyright <strong>Homebrew Heroes</strong>. All Rights Reserved
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 
 
