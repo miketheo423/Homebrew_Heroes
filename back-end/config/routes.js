@@ -61,7 +61,7 @@ router.route('/auth/currentUser')
 router.get('/api/users', userControllers.index);
 
 /* User Show - For user profile pages */
-router.get('/api/users/:userName', userControllers.show);
+router.get('/api/users/:username', userControllers.show);
 
 
 /////////////////////
