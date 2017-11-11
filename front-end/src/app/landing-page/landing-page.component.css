@@ -59,7 +59,8 @@
 
 
 
- .actions a {
+ .actions a,
+ .actions button {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   font-weight: 500;
