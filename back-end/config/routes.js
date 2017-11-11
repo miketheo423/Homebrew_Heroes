@@ -57,7 +57,11 @@ function authenticatedUser(req, res, next) {
 router.route('/auth/currentUser')
 				.get(authenticatedUser, userControllers.getInfo);
 
+/* User Index - For user search */
+router.get('/api/users', userControllers.index);
 
+/* User Show - For user profile pages */
+router.get('/api/users/:userName', userControllers.show);
 
 
 /////////////////////
@@ -68,16 +72,15 @@ router.route('/auth/currentUser')
 router.get('/api/beers', beerController.index); // TODO: pages for infinite scroll/lazy loading
 
 /* create a beer */
-router.post('/api/beers', beerController.create);
+router.post('/api/beers', authenticatedUser, beerController.create);
 
-/* beer profile view */
-router.get('/api/beers/:id', beerController.show);
-
-/* edit a beer */
-router.put('/api/beers/:id', beerController.update);
-
-/* delete a beer */
-router.delete('/api/beers/:id', beerController.delete);
+router.route('/api/beers/:id')
+	/* beer profile view */
+	.get(beerController.show)
+	/* edit a beer */
+	.put(authenticatedUser, beerController.update)
+	/* delete a beer */
+	.delete(authenticatedUser, beerController.delete);
 
 
 // Serving up front end 
