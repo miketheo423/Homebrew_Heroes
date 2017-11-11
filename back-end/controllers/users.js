@@ -14,7 +14,7 @@ module.exports.index = (req, res) => {
 	DB.User.findAll({attributes: ['username', 'id', 'photoUrl']}).then(users => res.json(users));
 };
 
-/* Show a single user (profile) */
+/* Show a single user and their beers (profile) */
 module.exports.show = (req, res) => {
 	// TODO: validate id is a number - crashes if non integer is passed...
 	DB.User.findById(req.params.id,{
@@ -24,7 +24,15 @@ module.exports.show = (req, res) => {
 			attributes: ['name', 'photoUrl', 'style', 'id']
 		}]
 	}).then(user => {
-		if (!user) res.status(404).send('User Not Found');
+		if (!user) res.status(404).send('User Not Found'); /* 404 if user not found */
 		res.json(user);
 	});
+};
+
+/* Update user profile info */
+module.exports.update = (req, res) => {
+	DB.User.findById(req.user.id).then(user => { /* Lookup using the ID of the currently logged in user */
+		if (!user) res.setatus(404).send('User Not Found');
+		return user.updateAttributes(req.body);
+	}).then(user => res.send('User Info Updated!'));
 };

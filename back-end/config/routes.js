@@ -63,6 +63,9 @@ router.get('/api/users', userControllers.index);
 /* User Show - For user profile pages */ //TODO: change ID to username once unique usernames are enforced
 router.get('/api/users/:id', userControllers.show);
 
+/* User Edit - User can update their profile info */
+router.put('/api/users', authenticatedUser, userControllers.update);
+
 
 /////////////////////
 /// Beer Routes /////
