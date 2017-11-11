@@ -16,7 +16,14 @@ module.exports.index = (req, res) => {
 
 /* Show a single user (profile) */
 module.exports.show = (req, res) => {
-	DB.User.findOne({where: {userName: req.params.username}}).then(user => {
+	// TODO: validate id is a number - crashes if non integer is passed...
+	DB.User.findById(req.params.id,{
+		attributes: ['username', 'createdAt', 'updatedAt', 'firstName', 'lastName', 'photoUrl'],
+		include: [{
+			model: DB.Beer,
+			attributes: ['name', 'photoUrl', 'style', 'id']
+		}]
+	}).then(user => {
 		if (!user) res.status(404).send('User Not Found');
 		res.json(user);
 	});

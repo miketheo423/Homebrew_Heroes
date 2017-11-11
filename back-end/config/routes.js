@@ -60,8 +60,8 @@ router.route('/auth/currentUser')
 /* User Index - For user search */
 router.get('/api/users', userControllers.index);
 
-/* User Show - For user profile pages */
-router.get('/api/users/:username', userControllers.show);
+/* User Show - For user profile pages */ //TODO: change ID to username once unique usernames are enforced
+router.get('/api/users/:id', userControllers.show);
 
 
 /////////////////////
