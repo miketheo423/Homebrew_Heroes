@@ -83,7 +83,7 @@ router.delete('/api/beers/:id', beerController.delete);
 // Serving up front end 
 
 router.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/dist/index.html'));
+  res.sendFile(path.join(__dirname + '/../dist/index.html'));
 });
 
 module.exports = router;
