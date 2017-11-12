@@ -10,6 +10,11 @@
 	background-color: #DB4D3F;
 }
 
+.login {
+	background-color: #03C4EB;
+	border: 1px solid #03C4EB;
+}
+
 .fb-login,
 .google-login,
 .login {
@@ -26,8 +31,15 @@
 }
 
 .or {
+	color: rgba(25, 21, 21, 0.7);
 	margin: 1.5em auto 2em auto;
 	border-top: 1px solid rgba(25, 21, 21, 0.26);
 	border-bottom: 1px solid rgba(25, 21, 21, 0.26);
 	width: 60%;
+}
+
+@media (min-width: 768px) {
+	.modal-dialog {
+		width: 30%;
+	}
 }
