@@ -1,6 +1,5 @@
 <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT|Raleway" rel="stylesheet">
 
-
   <section id="hero">
     <div class="hero-container">
       <div class="fadeIn">
@@ -10,7 +9,11 @@
         <h1>Homebrew Heroes</h1>
         <h2>...A place to connect with your brewing buddies</h2>
         <div class="actions">
-          <a href="{{BASE_URL}}/auth/google" class="btn-get-started">Get Started</a>
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn-get-started" data-toggle="modal" data-target="#myModal">Get Started</button>
+          <app-login-modal></app-login-modal>
+
       </div>
 
       <div id ="arrow-container" class="arrow bounce"></div>
@@ -54,7 +57,7 @@
   ============================-->
 
     <div class="call-to actions">
-          <a href="#about" class="btn-get-started">Sign-Up</a>
+          <button type="button" class="btn-get-started" data-toggle="modal" data-target="#myModal">Get Started</button>
     </div>
 
 
@@ -75,9 +78,6 @@
     </div>
   </footer>
   <!-- #footer -->
-
-  <app-sign-up-modal></app-sign-up-modal>
-  <app-login-modal></app-login-modal>
 
 
 
