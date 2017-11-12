@@ -15,6 +15,7 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
 import { BeerFeedPageComponent } from './beer-feed-page/beer-feed-page.component';
 import { BeerCardComponent } from './beer-card/beer-card.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     SignUpModalComponent,
     LoginModalComponent,
     BeerFeedPageComponent,
-    BeerCardComponent
+    BeerCardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
