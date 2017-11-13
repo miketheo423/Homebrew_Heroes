@@ -51,7 +51,7 @@ function authenticatedUser(req, res, next) {
 	// If user is authenticated then continue execution
 	if (req.isAuthenticated()) return next();
 	// Otherwise direct request back to the homepage
-	res.send('Error, user not signed in');
+	res.json({'message': 'Error, user not signed in'});
 }
 
 router.route('/auth/currentUser')
