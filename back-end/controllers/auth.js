@@ -44,10 +44,24 @@ const facebookCallback = (req, res, next) => {
 //////// LOCAL USER CONTROLLERS /////////
 
 // POST /auth/signup 
+// const postSignup = (req, res, next) => {
+// 	let signupStrategy = passport.authenticate('local-signup', {
+// 		successRedirect: process.env.FE_BASE_URL,
+// 		failureRedirect: process.env.FE_BASE_URL + '/welcome'
+// 	});
+// 	return signupStrategy(req, res, next);
+// };
+
+
+// POST /auth/signup 
 const postSignup = (req, res, next) => {
-	let signupStrategy = passport.authenticate('local-signup', {
-		successRedirect: process.env.FE_BASE_URL,
-		failureRedirect: process.env.FE_BASE_URL + '/welcome'
+	let signupStrategy = passport.authenticate('local-signup', (err, newUser) => {
+		if (err) { return next(err); }
+		if (!newUser) { return res.json( {message: 'User already exists'}); }
+		req.logIn(newUser, (err) => {
+			if (err) {return next(err);}
+			return res.redirect(process.env.FE_BASE_URL);
+		});
 	});
 	return signupStrategy(req, res, next);
 };

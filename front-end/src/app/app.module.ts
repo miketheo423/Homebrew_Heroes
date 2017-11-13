@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { BeersModule } from './beers/beers.module';
@@ -31,7 +32,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     BeersModule,
     UsersModule,
     AngularFontAwesomeModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [
     BeerFeedService
