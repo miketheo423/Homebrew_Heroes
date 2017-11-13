@@ -20,22 +20,23 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="login">
 
-                        	<!-- Facebook Login Button -->
-														<a type="button" href="{{BASE_URL}}/auth/facebook" class="btn btn-fb fb-login"><i class="fa fa-facebook left"></i> Continue with Facebook</a>
-													<!-- Google Login Button -->
-													<a href="{{BASE_URL}}/auth/google" class="btn btn-gplus google-login"><i class="fa fa-google-plus left"></i> Continue with Google +</a>
+                    	<!-- Facebook Login Button -->
+						<a type="button" href="{{BASE_URL}}/auth/facebook" class="btn btn-fb fb-login"><i class="fa fa-facebook left"></i> Continue with Facebook</a>
 
-													<div class="or"> OR </div>
+						<!-- Google Login Button -->
+						<a href="{{BASE_URL}}/auth/google" class="btn btn-gplus google-login"><i class="fa fa-google-plus left"></i> Continue with Google +</a>
 
-													<form method="POST" action="{{BASE_URL}}/auth/login">
-													  <div class="form-group">
-													    <input type="text" name="email" class="form-control" id="email" placeholder="Email">
-													  </div>
-													  <div class="form-group">
-													    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
-													  </div>
-													  <input class="btn btn-primary login" type="submit" value="Login">
-													</form>
+						<div class="or"> OR </div>
+
+						<form method="POST" action="{{BASE_URL}}/auth/login">
+						  <div class="form-group">
+						    <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+						  </div>
+						  <div class="form-group">
+						    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+						  </div>
+						  <input class="btn btn-primary login" type="submit" value="Login">
+						</form>
 
                         </div>
                         <div role="tabpanel" class="tab-pane" id="sign-up">
