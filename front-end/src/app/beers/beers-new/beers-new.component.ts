@@ -27,7 +27,7 @@ export class BeersNewComponent implements OnInit {
  		console.log(this.newBeer);
  		this.beersService.createBeer(this.newBeer)
  			.subscribe(response => {
- 				console.log(response.json());
+ 				console.log(response);
  				if (response.json().name === this.newBeer.name){
  					this.router.navigate(['/beers']);
  				}
