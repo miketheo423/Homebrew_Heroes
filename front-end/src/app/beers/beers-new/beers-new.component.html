@@ -1,3 +1,45 @@
-<p>
-  beers-new works!
-</p>
+<h2>New Brew:</h2>
+<form (ngSubmit)="saveBeer()">
+	<div class="form-group">
+		<label for="name">Name:
+		<input [(ngModel)]="newBeer.name" type="text" name="name" id="name" required />
+		</label>
+	</div>
+	<div class="form-group">
+		<label for="style">Style:
+		<select [(ngModel)]="newBeer.style" name="style" required id="style" required>
+			<option value="IPA">IPA</option>
+			<option value="Stout">Stout</option>
+			<option value="Lager">Lager</option>
+		</select>
+		</label>
+	</div>
+	<div class="form-group">
+		<label for="abv">ABV:
+		<input [(ngModel)]="newBeer.abv" type="number" name="abv" id="abv" />
+		</label>
+	</div>
+	<div class="form-group">
+		<label for="ibus">IBUs:
+		<input [(ngModel)]="newBeer.ibus" type="number" name="ibus" id="ibus" />
+		</label>
+	</div>
+	<div class="form-group">
+		<label for="photoUrl">Photo URL:
+		<input [(ngModel)]="newBeer.photoUrl" type="url" name="photoUrl" id="photoUrl" />
+		</label>
+	</div>
+	<div class="form-group">
+		<label for="description">Description:
+		<input [(ngModel)]="newBeer.description" type="textarea" name="description" id="description" />
+		</label>
+	</div>
+	<div class="form-group">
+		<label for="recipe">Recipe:
+		<input [(ngModel)]="newBeer.recipe" type="textarea" name="recipe" id="recipe" />
+		</label>
+	</div>
+
+	<input type="submit" value="SAVE" class="btn btn-primary">
+
+</form>

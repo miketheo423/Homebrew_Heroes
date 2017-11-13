@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BeersService } from '../beers.service';
 
 @Component({
   selector: 'app-beers-new',
@@ -6,10 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./beers-new.component.css']
 })
 export class BeersNewComponent implements OnInit {
+	newBeer = {
+		name: '',
+		style: '',
+		abv: '',
+		ibus: '',
+		photoUrl: '',
+		description: '',
+		recipe: ''
+	}
 
-  constructor() { }
+  constructor(private beersService : BeersService) { }
 
   ngOnInit() {
   }
+
+ 	saveBeer(){
+ 		console.log(this.newBeer);
+ 		this.beersService.createBeer(this.newBeer)
+ 			.subscribe(response => {
+ 				console.log(response.json());
+ 			})
+ 	}
 
 }
