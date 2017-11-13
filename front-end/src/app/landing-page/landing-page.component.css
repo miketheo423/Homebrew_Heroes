@@ -37,28 +37,6 @@
   font-family: 'Raleway', sans-serif;
 }
 
-@media (max-width: 768px) {
-  #hero h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    font-family: 'Raleway', sans-serif;
-
-  }
-  #hero h2 .rotating {
-    display: block;
-  }
-}
-
-@media (max-width: 768px) {
-  #hero h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-}
-
-
-
-
  .actions a,
  .actions button {
   font-family: "Raleway", sans-serif;
@@ -171,7 +149,7 @@
   margin-bottom: 4%;
 }
 
-#services .service-icon {
+.service-icon {
   float: left;
   background: #03C4EB;
   padding: 16px;
@@ -208,7 +186,62 @@
 }
 
 .final-pic {
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("./img/craft.jpg") fixed center center;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url("./img/craft.jpg") fixed center no-repeat;
   background-size: cover;
-  padding: 10%;
+  padding: 15%;
+}
+
+.mobile-section {
+  background-color: white;
+  height: 55rem;
+}
+
+.mobile {
+  height: 100%;
+  background: url(./img/mobile.png) top center no-repeat;
+}
+
+.header-mobile{
+  font-family: 'Old Standard TT', serif;
+  font-size: 4rem;
+  margin-top: 15rem;
+  margin-bottom: 3rem;
+}
+
+.header-mobile-text {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2rem;
+  margin-left: 10%;
+  margin-bottom: 4%;
+}
+
+@media (max-width: 767px) {
+  #hero h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-family: 'Raleway', sans-serif;
+
+  }
+  #hero h2 .rotating {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .header-mobile {
+    margin-top: 0;
+  }
+
+  #footer {
+    margin-top: 10%;
+  }
+
+  .mobile-section {
+    height: 50rem;
+  }
 }
