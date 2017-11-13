@@ -1,6 +1,11 @@
 <div class="container" *ngIf=oneBeer>
 	<div class="row content-row">
-	<img class="col-lg-5 col-md-5 col-sm-5 col-xsm-5 beer-content beer-photo" src="{{oneBeer.photoUrl}}" alt="">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xsm-5 beer-content"> 
+		<div class="beer-photo"> 
+		<img src="{{oneBeer.photoUrl}}" alt="" width="100%">
+	</div>
+	 <div class="user-name">brewer23452</div>
+	</div>
 	
 		<div class="col-lg-5 col-md-5 col-sm-5 col-xsm-5 beer-content bc-small">
 			<h1>{{oneBeer.name}}</h1>
