@@ -30,7 +30,11 @@ module.exports.show = (req, res) => {
 /** BEER CREATE **/
 /* Create a new beer and respond with that beer */
 module.exports.create = (req, res) => {
-	DB.Beer.create(req.body)
+	let userId = req.user.id;
+	console.log(userId);
+	let newBeer = req.body;
+	newBeer.userId = req.user.id;
+	DB.Beer.create(newBeer)
 	.then(beer => {
 		if (!beer) res.status(500).send('Beer could not be created');
 		
