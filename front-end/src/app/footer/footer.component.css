@@ -4,7 +4,13 @@
 /**********/
 
 
+
+
+
 #footer {
+	position: relative;
+	bottom: 0;
+	width: 100%;
   background: #374353;
   padding: 2%;
   color: white;
