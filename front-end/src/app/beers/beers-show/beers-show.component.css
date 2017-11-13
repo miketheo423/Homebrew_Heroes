@@ -1,12 +1,96 @@
-.content {
-	display: inline-block;
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT|Raleway');
+
+
+h1,
+h4 {
+	font-family: 'Old Standard TT', serif;
+	color: #F9BB2E;
 }
 
-img {
-	max-width: 20em;
-	max-height: 15em;
+p {
+	color: rgba(0,0,0,0.5);
 }
 
-.content {
+.container {
+	margin-bottom: 5em;
+}
+
+.beer-content {
+	text-align: center;
+	padding: 20px;
+}
+
+.beer-photo {
+	height: 30em;
+}
+
+.beer-traits {
+	padding-top: 1em;
+}
+
+.recipe-btn {
+	margin-top: 3em;
+}
+
+ .button-search a {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin: 10px;
+}
+
+ .button-search {
+  background: #03C4EB;
+  border: 2px solid #03C4EB;
+  color: #fff;
+}
+
+ .button-search:hover {
+  background: none;
+  border: 2px solid #F9BB2E;
+  color: #F9BB2E;
+}
+
+
+@media only screen and (min-width: 1200px) {
+    .container {
+        padding: 6em;
+    }
+
+    h1 {
+    	margin-bottom: 20px;
+    }
+
+    .beer-traits {
+    	padding-top: 5em;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 359px) {
+	.beer-photo {
+		margin-left: 1em; 
+		height: 22em;
+	}
+
+}
+
+@media only screen and (min-width: 360px) and (max-width: 414px) {
+	.beer-photo {
+		margin-left: 1.5em;
+		height: 24em; 
+	}
+}
+
+@media only screen and (min-width: 412px) and (max-width: 700px) {
+	.beer-photo {
+		margin-left: 2.8em;
+		height: 24em; 
+	}
 }
 
