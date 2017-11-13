@@ -215,16 +215,6 @@
   margin-bottom: 4%;
 }
 
-/*--------------------------------------------------------------
-# Footer
---------------------------------------------------------------*/
-#footer {
-  background: #374353;
-  padding: 2%;
-  color: white;
-  text-align: center;
-}
-
 @media (max-width: 767px) {
   #hero h2 {
     font-size: 2rem;
@@ -255,5 +245,3 @@
     height: 50rem;
   }
 }
-
-
