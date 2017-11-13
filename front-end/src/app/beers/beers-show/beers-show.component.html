@@ -1,3 +1,24 @@
-<p>
-  beers-show works!
-</p>
+<div *ngIf=oneBeer >
+	<div class="row marketing content">
+	<img class="col-lg-4" src="{{oneBeer.photoUrl}}" alt="">
+	
+		<div class="col-lg-4">
+			<h1>{{oneBeer.name}}</h1>
+			<p>{{oneBeer.description}}</p>
+		</div>
+
+		<div class="col-lg-4">
+			<h4>Style</h4>
+			<p>{{oneBeer.style}}</p>
+
+			<h4>ABV</h4>
+			<p>{{oneBeer.abv}}</p>
+
+			<h4>IBUs</h4>
+			<p>{{oneBeer.ibus}}</p>
+			<!-- <p>{{oneBeer.recipe}}</p> -->
+			<!-- <p>{{oneBeer.userId}}</p> -->
+		</div>
+
+	</div>
+</div>

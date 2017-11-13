@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BeersService } from '../beers.service';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-beers-show',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BeersShowComponent implements OnInit {
 
-  constructor() { }
+	oneBeer;
+
+  constructor(
+  	private route: ActivatedRoute,
+  	private beersService: BeersService
+  	) { }
 
   ngOnInit() {
+  	this.route.params.forEach( param => {
+  		this.beersService.getBeerProfileInfo(param.id)
+  		.subscribe(response => {
+  			console.log(response.json());
+  			this.oneBeer = response.json();
+  		});
+  	});
   }
 
 }
