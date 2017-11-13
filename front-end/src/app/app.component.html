@@ -3,4 +3,5 @@
 	<div class="outlet-content">
 	<router-outlet></router-outlet>
 	</div>
+	<div *ngIf="this.router.url !== '/welcome'" class="footer-spacing"></div>
 <app-footer></app-footer>
