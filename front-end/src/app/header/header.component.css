@@ -1,0 +1,33 @@
+/**********/
+/* HEADER */
+/**********/
+
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT');
+
+#header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+
+.logo-header {
+	margin: 0;
+	color: #fff;
+	background-color: #374353;
+	height: 7rem;
+}
+
+.logo {
+	font-size: 4rem;
+	font-family: 'Old Standard TT', serif;
+	margin-top: .7%;
+}
+
+.fa-user-circle {
+	float: right;
+}
+
+.user {
+	margin-top: .9%;
+}

@@ -1,3 +1,40 @@
-<p>
-  beers-new works!
-</p>
+<div class="container">
+<form (ngSubmit)="saveBeer()" class="col-sm-6">
+	<h2>New Brew:</h2>
+	<div class="form-group">
+		<label for="name">Name:</label>
+		<input [(ngModel)]="newBeer.name" type="text" name="name" id="name" class="form-control" required />
+	</div>
+	<div class="form-group">
+		<label for="style">Style:</label>
+		<select [(ngModel)]="newBeer.style" name="style" required id="style" class="form-control">
+			<option value="IPA">IPA</option>
+			<option value="Stout">Stout</option>
+			<option value="Lager">Lager</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="abv">ABV:</label>
+		<input [(ngModel)]="newBeer.abv" type="number" name="abv" id="abv" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label for="ibus">IBUs:</label>
+		<input [(ngModel)]="newBeer.ibus" type="number" name="ibus" id="ibus" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label for="photoUrl">Photo URL: (<small><a href="https://imgur.com/">Upload on Imgur</a></small>)</label>
+		<input [(ngModel)]="newBeer.photoUrl" type="url" name="photoUrl" id="photoUrl" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label for="description">Description:</label>
+		<textarea [(ngModel)]="newBeer.description"  name="description" id="description" class="form-control" rows="3"></textarea>
+	</div>
+	<div class="form-group">
+		<label for="recipe">Recipe:</label>
+		<textarea [(ngModel)]="newBeer.recipe" name="recipe" id="recipe" class="form-control" rows="3"></textarea>
+	</div>
+
+	<input type="submit" value="SAVE" class="btn btn-primary">
+
+</form>
+</div>

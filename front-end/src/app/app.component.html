@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<app-header *ngIf="this.router.url !== '/welcome'"></app-header>
+	<div *ngIf="this.router.url !== '/welcome'" class="header-spacing"></div>
+	<router-outlet></router-outlet>
+<app-footer></app-footer>
