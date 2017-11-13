@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BeersService } from '../beers.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-beers-new',
@@ -17,7 +18,7 @@ export class BeersNewComponent implements OnInit {
 		recipe: ''
 	}
 
-  constructor(private beersService : BeersService) { }
+  constructor(private beersService : BeersService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -27,6 +28,9 @@ export class BeersNewComponent implements OnInit {
  		this.beersService.createBeer(this.newBeer)
  			.subscribe(response => {
  				console.log(response.json());
+ 				if (response.json().name === this.newBeer.name){
+ 					this.router.navigate(['/beers']);
+ 				}
  			})
  	}
 
