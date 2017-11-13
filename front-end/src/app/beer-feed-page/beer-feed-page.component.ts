@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerFeedService } from './beer-feed.service';
+import { CurrentUserService } from '../current-user.service';
 
 
 @Component({
@@ -9,14 +10,23 @@ import { BeerFeedService } from './beer-feed.service';
 })
 export class BeerFeedPageComponent implements OnInit {
 	beerArray = [];
+  currentUser = {};
 
-  constructor(private beerFeedService: BeerFeedService) { }
+  constructor(private beerFeedService: BeerFeedService, private currentUserService: CurrentUserService) { }
 
   ngOnInit() {
   	this.beerFeedService.getBeerFeed().subscribe(response => {
   		this.beerArray = response.json().beers;
   		console.log(this.beerArray);
-  	})
+  	});
+
+    this.currentUser = this.currentUserService.getCurrentUser();
+    console.log(this.currentUser);
+
+    this.currentUserService.userStatus().subscribe(response => {
+      console.log(response);
+    })
+    
   }
 
 }

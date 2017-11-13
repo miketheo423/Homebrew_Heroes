@@ -7,25 +7,37 @@ require('dotenv').config();
 
 module.exports = function(passport) {
 
-	passport.serializeUser((user, done) => {
-		done(null, user);
+	passport.serializeUser(function(user, done) {
+		console.log('serialize');
+		console.log(user);
+	  done(null, user);
 	});
 
-	// passport.deserializeUser((id, done) => {
-	// 	console.log('deserializeUser');
-	// 	DB.User.findById(id).then((user) => {
-	// 		if(user) {
-				
-	// 			done(null, user.get());
-	// 		} else {
-	// 			done(user.errors, null);
-	// 		}
-	// 	});
+	passport.deserializeUser(function(user, done) {
+		console.log('serialize');
+		console.log(user);
+	  done(null, user);
+	});
+
+	// passport.serializeUser((user, done) => {
+	// 	done(null, user);
 	// });
 
-	passport.deserializeUser((obj, done) => {
-		done(null, obj);
-	});
+	// // passport.deserializeUser((id, done) => {
+	// // 	console.log('deserializeUser');
+	// // 	DB.User.findById(id).then((user) => {
+	// // 		if(user) {
+				
+	// // 			done(null, user.get());
+	// // 		} else {
+	// // 			done(user.errors, null);
+	// // 		}
+	// // 	});
+	// // });
+
+	// passport.deserializeUser((obj, done) => {
+	// 	done(null, obj);
+	// });
 
 	/////////////////////
 	// Google Strategy //

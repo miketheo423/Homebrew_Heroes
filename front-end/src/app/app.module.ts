@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BeersModule } from './beers/beers.module';
 import { UsersModule } from './users/users.module';
 
 import { BeerFeedService } from './beer-feed-page/beer-feed.service';
+import { CurrentUserService } from './current-user.service';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -35,10 +37,12 @@ import { HeaderComponent } from './header/header.component';
     BeersModule,
     UsersModule,
     AngularFontAwesomeModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [
-    BeerFeedService
+    BeerFeedService,
+    CurrentUserService
   ],
   bootstrap: [AppComponent]
 })
