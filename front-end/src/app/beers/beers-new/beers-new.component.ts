@@ -29,7 +29,8 @@ export class BeersNewComponent implements OnInit {
  			.subscribe(response => {
  				console.log(response.json());
  				if (response.json().name === this.newBeer.name){
- 					this.router.navigate(['/beers']);
+ 					this.router.navigate(['/beers/' + response.json().id]);
+ 					// window.location.href = '/beers';
  				}
  			})
  	}

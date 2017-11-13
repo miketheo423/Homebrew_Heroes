@@ -8,6 +8,10 @@ h2 {
 	font-family: 'Old Standard TT', serif;
 }
 
+.container {
+	padding-bottom: 1em;
+}
+
 /*.container{
 	display: flex;
 	justify-content: center;
