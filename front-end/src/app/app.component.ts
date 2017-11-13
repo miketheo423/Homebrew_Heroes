@@ -8,5 +8,5 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'app';
-  constructor(private router: Router){}
+  constructor(public router: Router){}
 }
