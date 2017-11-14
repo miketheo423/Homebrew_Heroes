@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserBeerFeedService } from '../users.service';
+import { CurrentUserService } from '../../current-user.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,9 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UsersShowComponent implements OnInit {
     userBeerArray;
-    oneUser : object;
+    oneUser = <any>{};
 
-  constructor(private userBeerFeedService: UserBeerFeedService, private route : ActivatedRoute) { }
+
+  constructor(
+    private userBeerFeedService: UserBeerFeedService, 
+    private route : ActivatedRoute,
+    private currentUserService: CurrentUserService) { }
 
   ngOnInit() {
     this.route.params.forEach(param => {
@@ -22,7 +27,9 @@ export class UsersShowComponent implements OnInit {
       });
     });
   }
+
+  myProfile(){
+    return this.oneUser.id == this.currentUserService.currentUser.id;
   }
 
-
-
+}
