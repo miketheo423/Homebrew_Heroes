@@ -1,21 +1,21 @@
 const DB = require('../models').models;
 
 const seedUser1 = {
-	username: 'Downslope Brewing', 
+	username: 'Rick Sanchez', 
 	email: 'down@slope.co',
 	firstName: 'Rick',
-	lastName: 'Sanches',
+	lastName: 'Sanchez',
 	zipcode: '80211',
-	photoUrl: 'https://members.nationalgeographic.com/static-media/images/css_images/nationalGeographic_default_avatar.jpg'
+	photoUrl: 'https://vignette.wikia.nocookie.net/deathbattlefanon/images/0/08/2816096-thumbnail_1992608045960713568.jpg/revision/latest?cb=20170828123523'
 };
 
 const seedUser2 = {
-	username: 'Old Belgium', 
+	username: 'Spiderman', 
 	email: 'oldb@aol.com',
 	firstName: 'Mary',
 	lastName: 'White',
 	zipcode: '80211',
-	photoUrl: 'https://members.nationalgeographic.com/static-media/images/css_images/nationalGeographic_default_avatar.jpg'
+	photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjCkxkae40XTN1TLBCiIhDU1LY_Mv1zlHpzQjmD9iZ9g0j2XT4'
 };
 
 const seedUser3 = {
@@ -33,7 +33,7 @@ const seedUser4 = {
 	firstName: 'Rick',
 	lastName: 'Sanchez',
 	zipcode: '80211',
-	photoUrl: 'http://iconshow.me/media/images/ui/ios7-icons/png/128/contact.png'
+	photoUrl: 'https://res.cloudinary.com/teepublic/image/private/s--ol3kag-Q--/t_Preview/b_rgb:0f7b47,c_limit,f_jpg,h_630,q_90,w_630/v1498803937/production/designs/1702562_1.jpg'
 };
 
 const seedUser5 = {
@@ -42,7 +42,7 @@ const seedUser5 = {
 	firstName: 'Morty',
 	lastName: 'Smith',
 	zipcode: '80211',
-	photoUrl: 'http://iconshow.me/media/images/ui/ios7-icons/png/128/contact.png'
+	photoUrl: 'https://vignette.wikia.nocookie.net/rickandmorty/images/e/e8/Morty.png/revision/latest?cb=20140116010409'
 };
 
 const seedBeers1 = [
