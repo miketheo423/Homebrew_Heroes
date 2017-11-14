@@ -7,7 +7,7 @@
 			<img src="{{oneBeer.photoUrl}}" alt="" width="100%">
 		</div>
 	</div>
-	<div class="form-buttons">
+	<div *ngIf="myBeer()" class="form-buttons">
 		<div class="buttons">
 			<a class="btn btn-warning" routerLink="/beers/edit/{{oneBeer.id}}" value="Edit" type="button" name="" id="">Edit</a>
 		</div>
