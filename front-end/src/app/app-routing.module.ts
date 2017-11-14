@@ -26,6 +26,7 @@ const routes: Routes = [
 	/* beers and user routes could be broken out into module routes */
 	{
 		path: 'beers',
+		canActivate: [AuthGuard],
 		children: [
 			{
 				path: '',
@@ -51,6 +52,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'brewer',
+		canActivate: [AuthGuard],
 		children: [
 			{
 				path: 'edit', // :id not necessary becuase user will only be able to edit their own profile
@@ -59,7 +61,8 @@ const routes: Routes = [
 			},
 			{
 				path: ':id', // individual user profile homebrewheroes.com/brewer/mrbrew
-				component: UsersShowComponent
+				component: UsersShowComponent,
+				canActivate: [AuthGuard]
 			}
 		]
 	},

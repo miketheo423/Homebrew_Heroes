@@ -30,17 +30,18 @@ export class CurrentUserService {
   	return this.http.get(`${this.baseUrl}/auth/currentuser`, {withCredentials: true});
   }
 
-  onUserUpdated(){
-  	return this.subject.asObservable().subscribe(response => {
-  		console.log(this.currentUser.username);
-  		if (this.currentUser.username) {
-  			this.isLoggedIn = true;
-  			this.userId = this.currentUser.id;
-  		} else {
-  			this.isLoggedIn = false;
-  			this.userId = null;
-  		}
-  	});
+  onUserUpdated(callback){
+  	return this.subject.asObservable().subscribe(callback);
+  	// .subscribe(response => {
+  	// 	console.log(this.currentUser.username);
+  	// 	if (this.currentUser.username) {
+  	// 		this.isLoggedIn = true;
+  	// 		this.userId = this.currentUser.id;
+  	// 	} else {
+  	// 		this.isLoggedIn = false;
+  	// 		this.userId = null;
+  	// 	}
+  	// });
   }
 
   logout(){
