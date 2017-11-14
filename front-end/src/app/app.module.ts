@@ -10,7 +10,7 @@ import { UsersModule } from './users/users.module';
 
 import { BeerFeedService } from './beer-feed-page/beer-feed.service';
 import { CurrentUserService } from './current-user.service';
-import { UserBeerFeedService } from './users/users-show/users-show.service';
+import { UserBeerFeedService } from './users/users.service';
 import { AuthGuard } from './auth.guard';
 
 
