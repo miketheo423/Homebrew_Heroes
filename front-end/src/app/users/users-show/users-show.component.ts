@@ -8,15 +8,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./users-show.component.css']
 })
 export class UsersShowComponent implements OnInit {
-    userBeerArray = [];
+    userBeerArray;
+    oneUser : object;
 
   constructor(private userBeerFeedService: UserBeerFeedService, private route : ActivatedRoute) { }
 
   ngOnInit() {
-    console.log('yay hooray');
     this.route.params.forEach(param => {
     this.userBeerFeedService.getUserBeerFeed(param.id)
     .subscribe(response => {
+      this.oneUser = response.json();
       this.userBeerArray = response.json().beers;
       console.log(this.userBeerArray);
       });
