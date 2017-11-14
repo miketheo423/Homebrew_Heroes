@@ -11,8 +11,8 @@
 		<div class="buttons">
 			<a class="btn btn-warning" routerLink="/beers/edit/{{oneBeer.id}}" value="Edit" type="button" name="" id="">Edit</a>
 		</div>
-		<form class="buttons">
-			<input class="btn btn-danger" value="Remove" type="button" name="" id="">
+		<form (ngSubmit)="deleteBeer()" class="buttons">
+			<input class="btn btn-danger" value="Remove" type="submit">
 		</form>
 	</div>
 	</div>

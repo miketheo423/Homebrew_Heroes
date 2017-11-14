@@ -26,4 +26,15 @@ export class BeersShowComponent implements OnInit {
   	});
   }
 
+  deleteBeer() {
+    console.log('yay hooray');
+    let userId = this.oneBeer.userId
+    console.log(userId)
+    this.beersService.deleteBeer(this.oneBeer.id)
+    .subscribe(response => {
+      console.log(response.json());
+      window.location.href = "/brewer/" + userId;
+    })
+  }
+
 }

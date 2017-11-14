@@ -62,5 +62,5 @@ module.exports.delete = (req, res) => {
 		
 		console.log('Deleting a beer!');
 		return beer.destroy();
-	}).then(res.json({"message":"Beer deleted"}))
+	}).then(res.json({"message":"Beer deleted"}));
 };
