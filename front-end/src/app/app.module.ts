@@ -7,6 +7,7 @@ import { BeersModule } from './beers/beers.module';
 import { UsersModule } from './users/users.module';
 
 import { BeerFeedService } from './beer-feed-page/beer-feed.service';
+import { UserBeerFeedService } from './users/users-show/users-show.service';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -38,7 +39,8 @@ import { HeaderComponent } from './header/header.component';
     HttpModule
   ],
   providers: [
-    BeerFeedService
+    BeerFeedService,
+    UserBeerFeedService
   ],
   bootstrap: [AppComponent]
 })

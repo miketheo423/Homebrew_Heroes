@@ -52,7 +52,7 @@ const routes: Routes = [
 				component: UsersEditComponent
 			},
 			{
-				path: ':userName', // individual user profile homebrewheroes.com/brewer/mrbrew
+				path: ':id', // individual user profile homebrewheroes.com/brewer/mrbrew
 				component: UsersShowComponent
 			}
 		]
