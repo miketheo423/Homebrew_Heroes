@@ -16,7 +16,7 @@ module.exports.index = (req, res) => {
 module.exports.show = (req, res) => {
 	// TODO: validate id is a number - crashes if non integer is passed...
 	DB.User.findById(req.params.id,{
-		attributes: ['username', 'createdAt', 'updatedAt', 'firstName', 'lastName', 'photoUrl', 'zipcode'],
+		attributes: ['id', 'username', 'createdAt', 'updatedAt', 'firstName', 'lastName', 'photoUrl', 'zipcode'],
 		include: [{
 			model: DB.Beer,
 			attributes: ['name', 'photoUrl', 'style', 'id']
@@ -36,5 +36,6 @@ module.exports.update = (req, res) => {
 		if (user.id !== req.user.id) res.json({'message':'Not authorized to modify this data'});
 		/* update user and respond with success message */
 		return user.updateAttributes(req.body);
-	}).then(user => res.json({'message': 'User Info Updated!'}));
+
+	}).then(user => res.json(user));
 };

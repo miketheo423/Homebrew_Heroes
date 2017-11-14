@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserBeerFeedService } from './users-show.service';
+import { UserBeerFeedService } from '../users.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -19,7 +19,6 @@ export class UsersShowComponent implements OnInit {
     .subscribe(response => {
       this.oneUser = response.json();
       this.userBeerArray = response.json().beers;
-      console.log(this.userBeerArray);
       });
     });
   }
