@@ -51,13 +51,20 @@ function authenticatedUser(req, res, next) {
 	// If user is authenticated then continue execution
 	if (req.isAuthenticated()) return next();
 	// Otherwise direct request back to the homepage
-	res.send('Error, user not signed in');
+	res.json({'message': 'Error, user not signed in'});
 }
 
 router.route('/auth/currentUser')
 				.get(authenticatedUser, userControllers.getInfo);
 
+/* User Index - For user search */
+router.get('/api/users', userControllers.index);
 
+/* User Show - For user profile pages */ //TODO: change ID to username once unique usernames are enforced
+router.get('/api/users/:id', userControllers.show);
+
+/* User Edit - User can update their profile info */
+router.put('/api/users', authenticatedUser, userControllers.update);
 
 
 /////////////////////
@@ -68,16 +75,18 @@ router.route('/auth/currentUser')
 router.get('/api/beers', beerController.index); // TODO: pages for infinite scroll/lazy loading
 
 /* create a beer */
-router.post('/api/beers', beerController.create);
+router.post('/api/beers', authenticatedUser, beerController.create);
 
-/* beer profile view */
-router.get('/api/beers/:id', beerController.show);
+router.route('/api/beers/:id')
+	/* beer profile view */
+	.get(beerController.show)
+	/* edit a beer */
+	.put(authenticatedUser, beerController.update)
+	/* delete a beer */
+	.delete(authenticatedUser, beerController.delete);
 
-/* edit a beer */
-router.put('/api/beers/:id', beerController.update);
-
-/* delete a beer */
-router.delete('/api/beers/:id', beerController.delete);
+/* search beer */
+router.get('/api/searchBeer', beerController.index2);
 
 
 // Serving up front end 

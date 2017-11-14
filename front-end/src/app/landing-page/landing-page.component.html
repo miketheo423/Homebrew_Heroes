@@ -1,6 +1,5 @@
 <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT|Raleway" rel="stylesheet">
 
-
   <section id="hero">
     <div class="hero-container">
       <div class="fadeIn">
@@ -10,7 +9,11 @@
         <h1>Homebrew Heroes</h1>
         <h2>...A place to connect with your brewing buddies</h2>
         <div class="actions">
-          <a href="{{BASE_URL}}/auth/google" class="btn-get-started">Get Started</a>
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn-get-started" data-toggle="modal" data-target="#myModal">Get Started</button>
+          <app-login-modal></app-login-modal>
+
       </div>
 
       <div id ="arrow-container" class="arrow bounce"></div>
@@ -54,30 +57,29 @@
   ============================-->
 
     <div class="call-to actions">
-          <a href="#about" class="btn-get-started">Sign-Up</a>
+          <button type="button" class="btn-get-started" data-toggle="modal" data-target="#myModal">Get Started</button>
     </div>
 
 
     <div class="final-pic"></div>
 
-<!--==========================
-  Footer
-============================-->
-  <footer id="footer">
+
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="copyright">
-            &copy; Copyright <strong>Homebrew Heroes</strong>. All Rights Reserved
-          </div>
-        </div>
+      <div class="mobile-section row">
+            <div class="mobile col-lg-5 col-md-5 col-sm-5 wow fadeInLeftBig">
+            </div>  
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <h3 class="header-mobile wow fadeInRight">Mobile Friendly</h3>
+                  <div class="service-icon wow fadeIn"></div>
+                  <p class="header-mobile-text wow fadeInRight">Find brewers on the fly</p>
+                   <div class="service-icon wow fadeIn"></div>
+                  <p class="header-mobile-text wow fadeInRight">Have your recipes on you at all times</p>
+                  <div class="service-icon wow fadeIn"></div>
+                  <p class="header-mobile-text wow fadeInRight">See what people around you are doing</p>
+            </div>    
       </div>
     </div>
-  </footer>
-  <!-- #footer -->
 
-  <app-sign-up-modal></app-sign-up-modal>
-  <app-login-modal></app-login-modal>
 
 
 

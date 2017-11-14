@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { isDevMode } from '@angular/core';
 
 @Component({
   selector: 'app-login-modal',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginModalComponent implements OnInit {
 
+	BASE_URL = "";
+
   constructor() { }
 
   ngOnInit() {
+  	if (isDevMode()) {
+  	 	this.BASE_URL = 'http://localhost:3000'
+  	}
   }
+
+  
 
 }

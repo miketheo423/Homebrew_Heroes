@@ -1,0 +1,103 @@
+/**********/
+/* HEADER */
+/**********/
+
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT');
+
+#header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+
+.logo-header {
+	margin: 0;
+	color: #fff;
+	background-color: #374353;
+	height: 7rem;
+}
+
+.logo {
+	font-size: 4rem;
+	font-family: 'Old Standard TT', serif;
+	margin-top: .7%;
+}
+
+.fa-user-circle {
+	float: right;
+}
+
+.user {
+	margin-top: .9%;
+}
+
+@media (max-width: 321px){
+.logo {
+  font-size: 2.3rem;
+  margin-top: 6.5%;
+  }
+.user {
+  margin-top: 4%;
+  }
+}
+
+@media (min-width: 322px) and (max-width: 376px) {
+.logo {
+    margin-top: 6%;
+    font-size: 2.4rem;
+  }
+.user {
+    margin-top: 4%;
+  }
+}
+
+@media (max-width: 476px) and (min-width: 376px){
+.logo {
+    font-size: 2.7rem;
+    margin-top: 5%;
+  }
+
+.fa-user-circle {
+    float: right;
+    margin-top: 4.8%;
+  }
+
+.user {
+    margin-top: 0;
+  }
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #03C4EB;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    background-color: #fabc09;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}

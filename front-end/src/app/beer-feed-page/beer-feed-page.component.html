@@ -2,21 +2,7 @@
 <!-- fonts  -->
 <!--********-->
 
-<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT|Raleway" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-<!--***************-->
-<!-- Logo Heading  -->
-<!--***************-->
-
-<section>
-	<div class="container-fluid logo-header">
-		<div class="row logo-header">
-			<div class="col-lg-6 col-xs-8 logo">Homebrew Heroes</div>
-			<div class="user col-lg-6"><i class="fa fa-user-circle fa-3x" aria-hidden="true"></i></div>
-		</div>
-	</div>
-</section>
 
 <!--*****************-->
 <!-- Search Section  -->
@@ -25,10 +11,30 @@
 <section>
 	<div class="container-fluid search">
 		<div class="row col-lg-12 col-xs-12">
-			<div class="col-md-auto">Search:
-				<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert brew type here">
-				<button type="submit" class="btn button-search">Submit</button>
-			</div>
+      <form (ngSubmit)="searchBeer()">
+			 <div class="col-md-auto ">Search:  
+    			<select [(ngModel)]="style" name="style" type="text" class="form-control " placeholder="Choose a beer style...">
+            <option value="American IPA">American IPA</option>
+            <option value="Stout">Stout</option>
+            <option value="Porter">Porter</option>
+            <option value="Gose">Gose</option>
+            <option value="Amber Ale">Amber Ale</option>
+            <option value="Double IPA">Double IPA</option>
+            <option value="Triple IPA">Triple IPA</option>
+            <option value="American Pale Ale">American Pale Ale</option>
+            <option value="English IPA">English IPA</option>
+            <option value="Sour">Sour</option>
+            <option value="Schwarzbier">Schwarzbier</option>
+            <option value="Witbier">Witbier</option>
+            <option value="Hefeweizen">Hefeweizen</option>
+            <option value="American Wheat Beer">American Wheat Beer</option>
+            <option value="Pilsner">Pilsner</option>
+            <option value="Scottish Ale">Scottish Ale</option>
+            <option value="Brown Ale">Brown Ale</option>
+          </select>
+    			<input type="submit" class="btn button-search" value="Beer Me">
+			 </div>
+      </form>
 		</div>
 	</div>
 </section>
@@ -38,21 +44,22 @@
 <!-- Cards Section  -->
 <!--****************-->
 
-  <div class="container card-main-css">
-    <div class="row">
-      <div *ngFor="let beer of beerArray" class="col-md-4 col-sm-6 col-xs-12">
+  <div class="container">
+    <div class="row card-main-css wow fadeIn">
+      <div *ngFor="let beer of beerArray" class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="card">
           <div class="image">
           	<img src={{beer.photoUrl}} width="100%">
           </div>
           <div class="text">
-       	    <div class="go-to">&#43;</div>
+       	    <a routerLink="beers/{{beer.id}}"  class="go-to">&#43;</a>
 			      <h2 class="beer-name">{{beer.name}}</h2>
-            <h3 class="beer-style">{{beer.style}}</h3>
+              <h3 class="beer-style">Type: {{beer.style}}</h3>
           </div>
         </div>
       </div>
       </div>
     </div>
+
 
 

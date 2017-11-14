@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// import { AuthGaurd } from 
+import { AuthGuard } from './auth.guard';
 
 import { BeerFeedPageComponent } from './beer-feed-page/beer-feed-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -16,7 +16,8 @@ import { BeersNewComponent } from './beers/beers-new/beers-new.component';
 const routes: Routes = [
 	{
 		path: '',
-		component: BeerFeedPageComponent //, canActivate: [AuthGaurd]
+		component: BeerFeedPageComponent, 
+		canActivate: [AuthGuard]
 	},
 	{
 		path: 'welcome',
@@ -25,35 +26,43 @@ const routes: Routes = [
 	/* beers and user routes could be broken out into module routes */
 	{
 		path: 'beers',
+		canActivate: [AuthGuard],
 		children: [
 			{
 				path: '',
-				component: BeerFeedPageComponent
+				component: BeerFeedPageComponent, 
+				canActivate: [AuthGuard]
 			},
 			{
 				path: 'new',
-				component: BeersNewComponent
+				component: BeersNewComponent,
+				canActivate: [AuthGuard]
 			},
 			{
 				path: 'edit/:id',
-				component: BeersEditComponent
+				component: BeersEditComponent,
+				canActivate: [AuthGuard]
 			},
 			{
 				path: ':id',
-				component: BeersShowComponent
+				component: BeersShowComponent,
+				canActivate: [AuthGuard]
 			}
 		]
 	},
 	{
 		path: 'brewer',
+		canActivate: [AuthGuard],
 		children: [
 			{
 				path: 'edit', // :id not necessary becuase user will only be able to edit their own profile
-				component: UsersEditComponent
+				component: UsersEditComponent,
+				canActivate: [AuthGuard]
 			},
 			{
-				path: ':userName', // individual user profile homebrewheroes.com/brewer/mrbrew
-				component: UsersShowComponent
+				path: ':id', // individual user profile homebrewheroes.com/brewer/mrbrew
+				component: UsersShowComponent,
+				canActivate: [AuthGuard]
 			}
 		]
 	},

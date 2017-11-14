@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT|Raleway');
+
+* {
+	font-family: 'Raleway', sans-serif;
+}
+
+h2 {
+	font-family: 'Old Standard TT', serif;
+}
+
+.container {
+	padding-bottom: 1em;
+}
+
+/*.container{
+	display: flex;
+	justify-content: center;
+	padding: 1em 0 6em 0;
+}*/

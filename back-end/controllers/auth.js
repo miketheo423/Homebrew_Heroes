@@ -64,7 +64,7 @@ const postLogin = (req, res, next) => {
 // GET /auth/logout
 const getLogout = (req, res) => {
 	req.logout();
-	res.redirect('/');
+	res.json({'message':'successfully logged out!'});
 };
 
 module.exports = {

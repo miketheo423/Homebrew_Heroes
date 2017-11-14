@@ -127,6 +127,10 @@ MIT
 MIT
 MIT
 
+@angular/forms@4.4.6
+MIT
+MIT
+
 @angular/platform-browser@4.4.6
 MIT
 MIT
