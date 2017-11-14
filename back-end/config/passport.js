@@ -36,7 +36,7 @@ module.exports = function(passport) {
 				console.log('creating new user');
 				DB.User.create({
 					username: 'brewer' + Math.floor(Math.random()*100000),
-					photoUrl: 'http://iconshow.me/media/images/ui/ios7-icons/png/128/contact.png',
+					photoUrl: 'https://members.nationalgeographic.com/static-media/images/css_images/nationalGeographic_default_avatar.jpg',
 					email: profile.email,
 					googleId: profile.id
 				}).then((user) => {
@@ -66,7 +66,7 @@ module.exports = function(passport) {
 				console.log('creating new user');
 				DB.User.create({
 					username: 'brewer' + Math.floor(Math.random()*100000),
-					photoUrl: 'http://iconshow.me/media/images/ui/ios7-icons/png/128/contact.png',
+					photoUrl: 'https://members.nationalgeographic.com/static-media/images/css_images/nationalGeographic_default_avatar.jpg',
 					facebookId: profile.id
 				}).then((user) => {
 					if (err) return console.log(err);
@@ -100,7 +100,7 @@ module.exports = function(passport) {
 						let userPassword = generateHash(password);
 						let data = {
 							username: 'brewer' + Math.floor(Math.random()*100000),
-							photoUrl: 'http://iconshow.me/media/images/ui/ios7-icons/png/128/contact.png',
+							photoUrl: 'https://members.nationalgeographic.com/static-media/images/css_images/nationalGeographic_default_avatar.jpg',
 							email: email,
 							password: userPassword
 						};
