@@ -63,8 +63,10 @@ module.exports.update = (req, res) => {
 module.exports.delete = (req, res) => {
 	DB.Beer.findById(req.params.id)
 	.then(beer => {
+		/* handle errors */
 		if (!beer) res.status(404).send('Beer not found!');
-		
+		if(beer.userId !== req.user.id) res.json({'message': 'Not authorized to delete this data'});
+		/* Delete beer */
 		console.log('Deleting a beer!');
 		return beer.destroy();
 	}).then(res.json({"message":"Beer deleted"}));
