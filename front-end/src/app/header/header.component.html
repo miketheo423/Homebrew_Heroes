@@ -13,8 +13,8 @@
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a routerLink="/brewer/{{currentBrewerId}}">My Profile</a>
-  <a routerLink="/">Beer-Feed</a>
-  <a (click)="logout()">Logout</a>
+  <a routerLink="/brewer/{{currentBrewerId}}" onclick="closeNav()">My Profile</a>
+  <a routerLink="/" onclick="closeNav()">Beer-Feed</a>
+  <a (click)="logout()" onclick="closeNav()">Logout</a>
 </div>
 

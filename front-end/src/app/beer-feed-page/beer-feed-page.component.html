@@ -11,10 +11,30 @@
 <section>
 	<div class="container-fluid search">
 		<div class="row col-lg-12 col-xs-12">
-			<div class="col-md-auto ">Search:
-				<input type="text" class="form-control " id="formGroupExampleInput" placeholder="Insert brew type here">
-				<button type="submit" class="btn button-search">Beer me</button>
-			</div>
+      <form (ngSubmit)="searchBeer()">
+			 <div class="col-md-auto ">Search:  
+    			<select [(ngModel)]="style" name="style" type="text" class="form-control " placeholder="Choose a beer style...">
+            <option value="American IPA">American IPA</option>
+            <option value="Stout">Stout</option>
+            <option value="Porter">Porter</option>
+            <option value="Gose">Gose</option>
+            <option value="Amber Ale">Amber Ale</option>
+            <option value="Double IPA">Double IPA</option>
+            <option value="Triple IPA">Triple IPA</option>
+            <option value="American Pale Ale">American Pale Ale</option>
+            <option value="English IPA">English IPA</option>
+            <option value="Sour">Sour</option>
+            <option value="Schwarzbier">Schwarzbier</option>
+            <option value="Witbier">Witbier</option>
+            <option value="Hefeweizen">Hefeweizen</option>
+            <option value="American Wheat Beer">American Wheat Beer</option>
+            <option value="Pilsner">Pilsner</option>
+            <option value="Scottish Ale">Scottish Ale</option>
+            <option value="Brown Ale">Brown Ale</option>
+          </select>
+    			<input type="submit" class="btn button-search" value="Beer Me">
+			 </div>
+      </form>
 		</div>
 	</div>
 </section>

@@ -1,4 +1,6 @@
 const DB = require('../models').models;
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 /** BEER FEED (INDEX) **/
 /* return info for beer preview cards ordered by post date */
@@ -64,3 +66,24 @@ module.exports.delete = (req, res) => {
 		return beer.destroy();
 	}).then(res.json({"message":"Beer deleted"}));
 };
+
+/** SEARCH BEER **/
+/* Finds beers to match the search bar parameters */
+module.exports.index2 = (req, res) => {
+	console.log(req.query.id);
+	let style = req.query.id;
+	DB.Beer.findAll({
+		where: { style: style},
+		order: [['createdAt', 'DESC']],
+		include: [{
+			model: DB.User,
+			attributes: ['username', 'id']
+		}],
+		attributes: ['name', 'photoUrl', 'style', 'id']
+	}).then(beers => {
+		if (!beers) res.status(500).send('Cant find beers :(');
+		res.json({beers: beers});
+	});
+};
+
+

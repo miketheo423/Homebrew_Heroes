@@ -51,7 +51,7 @@ const seedBeers1 = [
 	{
 		photoUrl: 'https://cdn2.justwineapp.com/assets/article/2017/05/photo-pint-beer-free-stock-image-royalty-free-instagram-social-media.jpg', 
 		name: 'Bong Water',
-		style: 'IPA',
+		style: 'American IPA',
 		abv: '6.2',
 		ibus: '99',
 		description: 'Hop Back Salamanzar Chill Haze Chill Haze Crystal malt, Racking. Stick, Oxidized Kilderkin Biere de garde. Nebuchadnezzar Mead Flute Double Magnum Amber, ” Draugh Wort Wort Chiller Mug.” Pub glass Bottle Conditioning Oxidized Ethanol or Ethyl Alcohol. Brew Kettle Grist Ale Aroma Hops Bottom-fermenting Yeast Ale Noble Hops Aroma Hops Brewhouse, Hydrometer.',
@@ -64,7 +64,7 @@ const seedBeers2 = [
 	{
 		photoUrl: 'http://www.publicdomainpictures.net/pictures/110000/velka/glass-of-beer.jpg', 
 		name: 'Mowhawk Black IPA',
-		style: 'IPA',
+		style: 'American IPA',
 		abv: '7.2',
 		ibus: '92',
 		description: 'Hop Back Salamanzar Chill Haze Chill Haze Crystal malt, Racking. Stick, Oxidized Kilderkin Biere de garde. Nebuchadnezzar Mead Flute Double Magnum Amber, ” Draugh Wort Wort Chiller Mug.” Pub glass Bottle Conditioning Oxidized Ethanol or Ethyl Alcohol. Brew Kettle Grist Ale Aroma Hops Bottom-fermenting Yeast Ale Noble Hops Aroma Hops Brewhouse, Hydrometer.',
@@ -74,7 +74,7 @@ const seedBeers2 = [
 	{
 		photoUrl: 'https://cdn2.justwineapp.com/assets/article/2017/05/photo-pint-beer-free-stock-image-royalty-free-instagram-social-media.jpg', 
 		name: 'Budwisest',
-		style: 'Lager',
+		style: 'Pilsner',
 		abv: '4.5',
 		ibus: '20',
 		description: 'Hop Back Salamanzar Chill Haze Chill Haze Crystal malt, Racking. Stick, Oxidized Kilderkin Biere de garde. Nebuchadnezzar Mead Flute Double Magnum Amber, ” Draugh Wort Wort Chiller Mug.” Pub glass Bottle Conditioning Oxidized Ethanol or Ethyl Alcohol. Brew Kettle Grist Ale Aroma Hops Bottom-fermenting Yeast Ale Noble Hops Aroma Hops Brewhouse, Hydrometer.',
@@ -84,7 +84,7 @@ const seedBeers2 = [
 	{
 		photoUrl: 'https://cdn2.justwineapp.com/assets/article/2017/05/photo-pint-beer-free-stock-image-royalty-free-instagram-social-media.jpg', 
 		name: 'Leftover Tacos',
-		style: 'Lager',
+		style: 'Pilsner',
 		abv: '6.2',
 		ibus: '14',
 		description: 'Hop Back Salamanzar Chill Haze Chill Haze Crystal malt, Racking. Stick, Oxidized Kilderkin Biere de garde. Nebuchadnezzar Mead Flute Double Magnum Amber, ” Draugh Wort Wort Chiller Mug.” Pub glass Bottle Conditioning Oxidized Ethanol or Ethyl Alcohol. Brew Kettle Grist Ale Aroma Hops Bottom-fermenting Yeast Ale Noble Hops Aroma Hops Brewhouse, Hydrometer.',

@@ -85,6 +85,9 @@ router.route('/api/beers/:id')
 	/* delete a beer */
 	.delete(authenticatedUser, beerController.delete);
 
+/* search beer */
+router.get('/api/searchBeer', beerController.index2);
+
 
 // Serving up front end 
 
