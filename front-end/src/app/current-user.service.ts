@@ -45,6 +45,8 @@ export class CurrentUserService {
 
   logout(){
   	/* tell backend to logout user and delete frontend user */
+  	this.updateCurrentUser({});
+  	return this.http.get(`${this.baseUrl}/auth/logout`, {withCredentials: true});
   }
 
 
