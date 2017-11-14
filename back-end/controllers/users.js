@@ -11,14 +11,14 @@ module.exports.getInfo = (req, res) => {
 
 /* Index all users (for search) */
 module.exports.index = (req, res) => {
-	DB.User.findAll({attributes: ['username', 'id', 'photoUrl']}).then(users => res.json(users));
+	DB.User.findAll({attributes: ['username', 'id', 'photoUrl', 'zipcode']}).then(users => res.json(users));
 };
 
 /* Show a single user and their beers (profile) */
 module.exports.show = (req, res) => {
 	// TODO: validate id is a number - crashes if non integer is passed...
 	DB.User.findById(req.params.id,{
-		attributes: ['username', 'createdAt', 'updatedAt', 'firstName', 'lastName', 'photoUrl'],
+		attributes: ['username', 'createdAt', 'updatedAt', 'firstName', 'lastName', 'photoUrl', 'zipcode'],
 		include: [{
 			model: DB.Beer,
 			attributes: ['name', 'photoUrl', 'style', 'id']
