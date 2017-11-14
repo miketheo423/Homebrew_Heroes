@@ -18,7 +18,7 @@ module.exports.index = (req, res) => {
 module.exports.show = (req, res) => {
 	// TODO: validate id is a number - crashes if non integer is passed...
 	DB.User.findById(req.params.id,{
-		attributes: ['username', 'createdAt', 'updatedAt', 'firstName', 'lastName', 'photoUrl', 'zipcode'],
+		attributes: ['id', 'username', 'createdAt', 'updatedAt', 'firstName', 'lastName', 'photoUrl', 'zipcode'],
 		include: [{
 			model: DB.Beer,
 			attributes: ['name', 'photoUrl', 'style', 'id']
@@ -34,5 +34,5 @@ module.exports.update = (req, res) => {
 	DB.User.findById(req.user.id).then(user => { /* Lookup using the ID of the currently logged in user */
 		if (!user) res.setatus(404).send('User Not Found');
 		return user.updateAttributes(req.body);
-	}).then(user => res.send('User Info Updated!'));
+	}).then(user => res.json(user));
 };

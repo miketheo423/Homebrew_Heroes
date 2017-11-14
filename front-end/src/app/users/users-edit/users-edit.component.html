@@ -1,3 +1,34 @@
-<p>
-  users-edit works!
-</p>
+<!-- Modal -->
+<div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title header-edit" id="edit-Profile">Edit Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="editProfile()">
+  			<div class="form-group">
+  			  <label class="col-form-label">Change Username:</label>
+  			  <input [(ngModel)]="editedProfile.username" name="username" type="text" class="form-control" id="username" placeholder="Enter username...">
+  			</div>
+  			<div class="form-group">
+  			  <label class="col-form-label">Change Zipcode: </label>
+  			  <input [(ngModel)]="editedProfile.zipcode" name="zipcode" type="text" class="form-control" id="zipcode" placeholder="Enter zipcode...">
+  			</div>
+  			<div class="form-group">
+  			  <label class="col-form-label">Image URL: </label>
+  			  <input [(ngModel)]="editedProfile.photoUrl" name="photoUrl" type="text" class="form-control" id="photoURL" placeholder="URL">
+  			</div>
+		
+      
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <input type="submit" value="Save Changes" class="btn btn-primary">
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
