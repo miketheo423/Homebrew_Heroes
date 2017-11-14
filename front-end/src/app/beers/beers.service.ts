@@ -16,17 +16,17 @@ export class BeersService {
 
   /* create a new beer with form information */
   createBeer(newBeer){
-  	return this.http.post(`${this.baseUrl}/api/beers`, newBeer);
+  	return this.http.post(`${this.baseUrl}/api/beers`, newBeer, {withCredentials: true});
   }
 
   /* edit a beer with form information */
   editBeer(beerId, editedBeer){
-  	return this.http.put(`${this.baseUrl}/api/beers/${beerId}`, editedBeer);
+  	return this.http.put(`${this.baseUrl}/api/beers/${beerId}`, editedBeer, {withCredentials: true});
   }
 
   /* delete a beer */
   deleteBeer(beerId){
-  	return this.http.delete(`${this.baseUrl}/api/beers/${beerId}`);
+  	return this.http.delete(`${this.baseUrl}/api/beers/${beerId}`, {withCredentials: true});
   }
 
 }

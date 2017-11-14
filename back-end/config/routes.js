@@ -51,7 +51,7 @@ function authenticatedUser(req, res, next) {
 	// If user is authenticated then continue execution
 	if (req.isAuthenticated()) return next();
 	// Otherwise direct request back to the homepage
-	res.send('Error, user not signed in');
+	res.json({'message': 'Error, user not signed in'});
 }
 
 router.route('/auth/currentUser')
@@ -75,7 +75,7 @@ router.put('/api/users', authenticatedUser, userControllers.update);
 router.get('/api/beers', beerController.index); // TODO: pages for infinite scroll/lazy loading
 
 /* create a beer */
-router.post('/api/beers', beerController.create);
+router.post('/api/beers', authenticatedUser, beerController.create);
 
 router.route('/api/beers/:id')
 	/* beer profile view */
