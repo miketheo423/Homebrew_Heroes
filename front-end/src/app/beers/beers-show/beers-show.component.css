@@ -15,6 +15,15 @@ p {
 	margin-bottom: 7em;
 }
 
+#brewer-name {
+  z-index: 1000;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
 .buttons {
   display: inline-block;
 }
