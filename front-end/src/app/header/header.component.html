@@ -6,7 +6,15 @@
 	<div class="container-fluid logo-header">
 		<div class="row logo-header">
 			<div class="col-lg-6 col-xs-9 logo">Homebrew Heroes</div>
-			<div class="user col-lg-6"><i class="fa fa-user-circle fa-3x" aria-hidden="true"></i></div>
+			<div class="user col-lg-6"><i onclick="openNav()" class="fa fa-user-circle fa-3x" aria-hidden="true"></i></div>
 		</div>
 	</div>
 </section>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a routerLink="/brewer/1">My Profile</a>
+  <a routerLink="/">Beer-Feed</a>
+  <a href="">Logout</a>
+</div>
+
