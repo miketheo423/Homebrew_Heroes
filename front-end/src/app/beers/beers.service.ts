@@ -29,4 +29,12 @@ export class BeersService {
   	return this.http.delete(`${this.baseUrl}/api/beers/${beerId}`, {withCredentials: true});
   }
 
+  checkStyle(style) {
+    let photoUrl = '';
+    if (style = 'Stout') {
+       photoUrl = "http://hopworksbeer.com/wp-content/uploads/2015/07/HUB_Site_Pint_STOUT.jpg"
+     }
+     return photoUrl;
+  }
+
 }

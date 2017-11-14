@@ -10,7 +10,7 @@ import { BeerFeedService } from './beer-feed.service';
 
 export class BeerFeedPageComponent implements OnInit {
 	beerArray = [];
-  style = "Stout";
+  style = "";
 
   constructor(private beerFeedService: BeerFeedService) { }
 
