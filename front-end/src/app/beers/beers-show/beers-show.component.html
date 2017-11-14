@@ -1,10 +1,20 @@
 <div class="container" *ngIf=oneBeer>
 	<div class="row content-row">
 	<div class="col-lg-5 col-md-5 col-sm-5 col-xsm-5 beer-content"> 
-		<div class="beer-photo"> 
-		<img src="{{oneBeer.photoUrl}}" alt="" width="100%">
+		<div class="beer-photo col-xs-12"> 
+			<div class="user-name col-lg-9 col-md-9 col-sm-9 col-xs-9">{{oneBeer.user.username}}</div>
+		<div class="beer-image">
+			<img src="{{oneBeer.photoUrl}}" alt="" width="100%">
+		</div>
 	</div>
-	 <div class="user-name">{{oneBeer.user.username}}</div>
+	<div class="form-buttons">
+		<div class="buttons">
+			<a class="btn btn-warning" routerLink="/beers/edit/{{oneBeer.id}}" value="Edit" type="button" name="" id="">Edit</a>
+		</div>
+		<form (ngSubmit)="deleteBeer()" class="buttons">
+			<input class="btn btn-danger" value="Remove" type="submit">
+		</form>
+	</div>
 	</div>
 	
 		<div class="col-lg-5 col-md-5 col-sm-5 col-xsm-5 beer-content bc-small">
