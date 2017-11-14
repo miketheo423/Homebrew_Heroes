@@ -9,17 +9,48 @@
 	</div>
 </section>
 
+
+<!--******************-->
+<!-- Profile Section  -->
+<!--******************-->
+
 <section>
 	<div class="container-fluid profile">
-		<div class="profile-info col-lg-3 col-md-3 col-sm-3 col-xs-12">
-			<div class="profile-picture col-lg-10 col-md-10 col-sm-10"><img src="https://avatarfiles.alphacoders.com/945/94560.png" alt="" style="width:100%">
+		<div class=" row profile-info col-lg-3 col-md-3 col-sm-3 ">
+			<div class="profile-picture col-lg-10 col-md-10 col-sm-12 col-xs-10"><img src="https://avatarfiles.alphacoders.com/945/94560.png" alt="" style="width:100%">
 				<div class="user-name col-lg-9 col-md-9 col-sm-9 col-xs-9">Pickle Rick</div>
 			</div>
-			<div class="city col-lg-2 col-md-2 col-sm-2">City: </div>
+			<div class="city col-lg-12 col-md-12 col-sm-12 col-xs-12">Zip Code: 80218</div>
 			<button type="button" class="btn-get-started actions col-lg-7 col-md-7 col-sm-7 col-xs-7">Message Hero</button>
 		</div>
+
+<!--****************-->
+<!-- Cards Section  -->
+<!--****************-->
+
+<div class="container-fluid card-section-profile">
+    <div class=" card-main-css wow fadeIn col-lg-9">
+      <div *ngFor="let beer of userBeerArray" class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <div class="card">
+          <div class="image">
+          	<img src={{beer.photoUrl}} width="100%">
+          </div>
+          <div class="text">
+       	    <!-- <a routerLink="beers/{{beer.id}}"  class="go-to">&#43;</a> -->
+			      <h2 class="beer-name">{{beer.name}}</h2>
+              <h3 class="beer-style">Type: {{beer.style}}</h3>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
 	</div>
 </section>
+
+
+
+
 
 </body>
 </html>

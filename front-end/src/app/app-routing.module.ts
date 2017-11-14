@@ -58,7 +58,7 @@ const routes: Routes = [
 				canActivate: [AuthGuard]
 			},
 			{
-				path: ':userName', // individual user profile homebrewheroes.com/brewer/mrbrew
+				path: ':id', // individual user profile homebrewheroes.com/brewer/mrbrew
 				component: UsersShowComponent
 			}
 		]
