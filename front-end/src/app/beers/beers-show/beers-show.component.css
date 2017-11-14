@@ -72,6 +72,10 @@ p {
 	margin-top: 3em;
 }
 
+.modal-body {
+  white-space: pre-wrap;
+}
+
  .button-search a {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
