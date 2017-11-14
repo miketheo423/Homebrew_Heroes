@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BeersService } from '../beers.service';
 import { ActivatedRoute } from '@angular/router'
+import { CurrentUserService } from '../../current-user.service';
 
 @Component({
   selector: 'app-beers-show',
@@ -10,10 +11,12 @@ import { ActivatedRoute } from '@angular/router'
 export class BeersShowComponent implements OnInit {
 
 	oneBeer;
+  currentBrewerId;
 
   constructor(
   	private route: ActivatedRoute,
-  	private beersService: BeersService
+  	private beersService: BeersService,
+    private currentUserService: CurrentUserService
   	) { }
 
   ngOnInit() {
@@ -24,6 +27,13 @@ export class BeersShowComponent implements OnInit {
   			this.oneBeer = response.json();
   		});
   	});
+
+    /* Tie current brewer id to the current user in the user service */
+    this.currentBrewerId = this.currentUserService.getId();
+    this.currentUserService.onUserUpdated(user => {
+      this.currentBrewerId = user.id;
+      console.log(this.currentBrewerId);
+    });
   }
 
   deleteBeer() {
@@ -35,6 +45,11 @@ export class BeersShowComponent implements OnInit {
       console.log(response.json());
       window.location.href = "/brewer/" + userId;
     })
+  }
+
+  myBeer(){
+    /* conditional to show edit and delete buttons */
+    return this.currentBrewerId == this.oneBeer.userId;
   }
 
 }

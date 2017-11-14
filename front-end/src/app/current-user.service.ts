@@ -9,7 +9,6 @@ export class CurrentUserService {
 	baseUrl = '';
 	private subject = new Subject();
 	private isLoggedIn: boolean = false;
-	userId;
 
   constructor(private http: Http) { 
   	if(isDevMode()) this.baseUrl = 'http://localhost:3000';
@@ -32,16 +31,10 @@ export class CurrentUserService {
 
   onUserUpdated(callback){
   	return this.subject.asObservable().subscribe(callback);
-  	// .subscribe(response => {
-  	// 	console.log(this.currentUser.username);
-  	// 	if (this.currentUser.username) {
-  	// 		this.isLoggedIn = true;
-  	// 		this.userId = this.currentUser.id;
-  	// 	} else {
-  	// 		this.isLoggedIn = false;
-  	// 		this.userId = null;
-  	// 	}
-  	// });
+  }
+
+  getId(){
+  	return this.currentUser.id;
   }
 
   logout(){
