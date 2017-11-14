@@ -9,6 +9,10 @@ export class BeerFeedService {
 		return this.http.get(this.baseUrl + '/api/beers');
 	}
 
+	searchBeer() {
+		return this.http.get(this.baseUrl + '/api/beers');
+	}
+
   constructor(private http : Http) {
   	if (isDevMode()){
   		this.baseUrl = "http://localhost:3000";

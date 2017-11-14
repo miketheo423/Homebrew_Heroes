@@ -11,10 +11,12 @@
 <section>
 	<div class="container-fluid search">
 		<div class="row col-lg-12 col-xs-12">
-			<div class="col-md-auto ">Search:
-				<input type="text" class="form-control " id="formGroupExampleInput" placeholder="Insert brew type here">
-				<button type="submit" class="btn button-search">Beer me</button>
-			</div>
+      <form (ngSubmit)="searchBeer()">
+			 <div class="col-md-auto ">Search:  
+    			<input [(ngModel)]="style" name="style" type="text" class="form-control " id="formGroupExampleInput" placeholder="Insert brew type here">
+    			<input type="submit" class="btn button-search" value="Beer Me">
+			 </div>
+      </form>
 		</div>
 	</div>
 </section>
