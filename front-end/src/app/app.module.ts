@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router'
 
 import { AppRoutingModule } from './app-routing.module';
 import { BeersModule } from './beers/beers.module';
@@ -28,7 +29,7 @@ import { HeaderComponent } from './header/header.component';
     BeerFeedPageComponent,
     BeerCardComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +37,8 @@ import { HeaderComponent } from './header/header.component';
     BeersModule,
     UsersModule,
     AngularFontAwesomeModule,
-    HttpModule
+    HttpModule,
+    RouterModule
   ],
   providers: [
     BeerFeedService,
