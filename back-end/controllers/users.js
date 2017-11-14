@@ -33,7 +33,7 @@ module.exports.update = (req, res) => {
 	DB.User.findById(req.user.id).then(user => { 
 		/* handle errors */
 		if (!user) res.status(404).json({'message': 'User Not Found'});
-		if (user.id !== req.user.id) res.json({'message':'Not authorized to modify this data'})
+		if (user.id !== req.user.id) res.json({'message':'Not authorized to modify this data'});
 		/* update user and respond with success message */
 		return user.updateAttributes(req.body);
 	}).then(user => res.json({'message': 'User Info Updated!'}));
