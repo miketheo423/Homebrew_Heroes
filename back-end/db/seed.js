@@ -6,7 +6,7 @@ const seedUser1 = {
 	firstName: 'Rick',
 	lastName: 'Sanches',
 	zipcode: '80211',
-	photoUrl: 'http://iconshow.me/media/images/ui/ios7-icons/png/128/contact.png'
+	photoUrl: 'https://members.nationalgeographic.com/static-media/images/css_images/nationalGeographic_default_avatar.jpg'
 };
 
 const seedUser2 = {
@@ -15,7 +15,7 @@ const seedUser2 = {
 	firstName: 'Mary',
 	lastName: 'White',
 	zipcode: '80211',
-	photoUrl: 'http://iconshow.me/media/images/ui/ios7-icons/png/128/contact.png'
+	photoUrl: 'https://members.nationalgeographic.com/static-media/images/css_images/nationalGeographic_default_avatar.jpg'
 };
 
 const seedUser3 = {
@@ -24,7 +24,7 @@ const seedUser3 = {
 	firstName: 'Wes',
 	lastName: 'Wes',
 	zipcode: '80211',
-	photoUrl: 'http://iconshow.me/media/images/ui/ios7-icons/png/128/contact.png'
+	photoUrl: 'https://members.nationalgeographic.com/static-media/images/css_images/nationalGeographic_default_avatar.jpg'
 };
 
 const seedUser4 = {

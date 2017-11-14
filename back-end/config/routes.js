@@ -64,7 +64,7 @@ router.get('/api/users', userControllers.index);
 router.get('/api/users/:id', userControllers.show);
 
 /* User Edit - User can update their profile info */
-router.put('/api/users', authenticatedUser, userControllers.update);
+router.put('/api/users/:id', authenticatedUser, userControllers.update);
 
 
 /////////////////////
