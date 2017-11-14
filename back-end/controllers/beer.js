@@ -69,19 +69,21 @@ module.exports.delete = (req, res) => {
 
 /** SEARCH BEER **/
 /* Finds beers to match the search bar parameters */
-// module.exports.index = (req, res) => {
-// 	DB.Beer.findAll({
-// 		where: { style: 'Stout'},
-// 		order: [['createdAt', 'DESC']],
-// 		include: [{
-// 			model: DB.User,
-// 			attributes: ['username', 'id']
-// 		}],
-// 		attributes: ['name', 'photoUrl', 'style', 'id']
-// 	}).then(beers => {
-// 		if (!beers) res.status(500).send('Cant find beers :(');
-// 		res.json({beers: beers});
-// 	});
-// };
+module.exports.index2 = (req, res) => {
+	console.log(req.query.id);
+	let style = req.query.id;
+	DB.Beer.findAll({
+		where: { style: style},
+		order: [['createdAt', 'DESC']],
+		include: [{
+			model: DB.User,
+			attributes: ['username', 'id']
+		}],
+		attributes: ['name', 'photoUrl', 'style', 'id']
+	}).then(beers => {
+		if (!beers) res.status(500).send('Cant find beers :(');
+		res.json({beers: beers});
+	});
+};
 
 

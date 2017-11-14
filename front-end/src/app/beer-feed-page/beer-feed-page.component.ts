@@ -10,7 +10,7 @@ import { BeerFeedService } from './beer-feed.service';
 
 export class BeerFeedPageComponent implements OnInit {
 	beerArray = [];
-  style = "";
+  style = "Stout";
 
   constructor(private beerFeedService: BeerFeedService) { }
 
@@ -21,7 +21,7 @@ export class BeerFeedPageComponent implements OnInit {
   }
 
   searchBeer() {
-    this.beerFeedService.searchBeer().subscribe(response => {
+    this.beerFeedService.searchBeer(this.style).subscribe(response => {
       this.beerArray = response.json().beers;
     })
   }

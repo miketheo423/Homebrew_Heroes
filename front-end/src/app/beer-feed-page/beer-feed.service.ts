@@ -9,8 +9,8 @@ export class BeerFeedService {
 		return this.http.get(this.baseUrl + '/api/beers');
 	}
 
-	searchBeer() {
-		return this.http.get(this.baseUrl + '/api/beers');
+	searchBeer(searchParams) {
+		return this.http.get(this.baseUrl + '/api/searchBeer?id=' + searchParams);
 	}
 
   constructor(private http : Http) {
