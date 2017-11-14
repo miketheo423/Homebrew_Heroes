@@ -1,6 +1,5 @@
 const DB = require('../models').models;
-const Sequelize = require('sequelize');
-const Op = Sequelize.Op;
+//const Sequelize = require('sequelize');
 
 /** BEER FEED (INDEX) **/
 /* return info for beer preview cards ordered by post date */
@@ -32,25 +31,29 @@ module.exports.show = (req, res) => {
 /** BEER CREATE **/
 /* Create a new beer and respond with that beer */
 module.exports.create = (req, res) => {
-	let userId = req.user.id;
-	console.log(userId);
+	/* Add the current userId to the new beer object */
 	let newBeer = req.body;
 	newBeer.userId = req.user.id;
+	/* Create beer */
 	DB.Beer.create(newBeer)
 	.then(beer => {
-		if (!beer) res.status(500).send('Beer could not be created');
-		
+		/* Handle errors */
+		if (!beer) res.status(500).json({'message' : 'Beer could not be created'});
+		/* Respond with new beer object */
 		console.log('New Beer Added!');
 		res.json(beer);
 	});
 };
 
 /** BEER UPDATE **/
-/* update beer by ID and return the updated */
+/* update beer by ID and return the updated beer */
 module.exports.update = (req, res) => {
 	DB.Beer.findById(req.params.id)
 	.then(beer => {
-		if(!beer) res.status(404).send('Beer not found');
+		/* handle errors */
+		if(!beer) res.status(404).json({'message': 'Beer not found'});
+		if(beer.userId !== req.user.id) res.json({'message': 'Not authorized to edit this data'});
+		/* Update beer and respond */
 		return beer.updateAttributes(req.body); /* update */
 	}).then(beer => res.json(beer)); /* resond with updated beer */
 };
