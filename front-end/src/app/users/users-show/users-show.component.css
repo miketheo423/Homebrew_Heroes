@@ -36,7 +36,7 @@ html, body{
 .profile-picture {
   max-width: 100%;
   margin: 0 auto;
-  margin-top: 10%;
+  margin-top: 15%;
   position: relative;
   left:11%;
   top: 7%;
@@ -59,7 +59,7 @@ html, body{
 }
 
 .city {
-  margin-top: 14rem;
+  margin-top: 10rem;
   text-align: center;
   font-size: 2rem;
 }
