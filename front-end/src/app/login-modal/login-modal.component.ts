@@ -17,6 +17,8 @@ export class LoginModalComponent implements OnInit {
     email: '',
     password: ''
   }
+  loginMessage = "";
+  signupMessage = "";
 
 	BASE_URL = "";
 
@@ -50,6 +52,26 @@ export class LoginModalComponent implements OnInit {
         console.log(response.json());
       }
     })
+  }
+
+  validLogin(){
+    if (this.loginForm.email && this.loginForm.password){
+      this.loginMessage = "";
+      return false;
+    } else {
+      this.loginMessage = "Please enter an email and password"
+      return true;
+    }
+  }
+
+  validSignup(){
+    if (this.signupForm.email && this.signupForm.password){
+      this.signupMessage = "";
+      return false;
+    } else {
+      this.signupMessage = "Please enter an email and password"
+      return true;
+    }
   }
   
 

@@ -35,7 +35,7 @@
 						  <div class="form-group">
 						    <input [(ngModel)]="loginForm.password" type="password" name="password" class="form-control" id="password" placeholder="Password">
 						  </div>
-						  <input class="btn btn-primary login" type="submit" value="Login" data-toggle="modal" data-target="#myModal">
+						  <input [disabled]="validLogin()" class="btn btn-primary login" type="submit" value="Login" data-toggle="modal" data-target="#myModal">
 						</form>
 
                         </div>
@@ -48,7 +48,7 @@
                         	  <div class="form-group">
                         	    <input [(ngModel)]="signupForm.password" type="password" name="password" class="form-control" id="password" placeholder="Password">
                         	  </div>
-                        	  <input class="btn btn-primary login" type="submit" value="Signup" data-toggle="modal" data-target="#myModal">
+                        	  <input [disabled]="validSignup()" class="btn btn-primary login" type="submit" value="Signup" data-toggle="modal" data-target="#myModal">
                         	</form>
 
                         </div>
