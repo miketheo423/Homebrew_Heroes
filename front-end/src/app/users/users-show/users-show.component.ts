@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserBeerFeedService } from './users-show.service';
+import { UserBeerFeedService } from '../users.service';
+import { CurrentUserService } from '../../current-user.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,21 +9,27 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./users-show.component.css']
 })
 export class UsersShowComponent implements OnInit {
-    userBeerArray = [];
+    userBeerArray;
+    oneUser = <any>{};
 
-  constructor(private userBeerFeedService: UserBeerFeedService, private route : ActivatedRoute) { }
+
+  constructor(
+    private userBeerFeedService: UserBeerFeedService, 
+    private route : ActivatedRoute,
+    private currentUserService: CurrentUserService) { }
 
   ngOnInit() {
-    console.log('yay hooray');
     this.route.params.forEach(param => {
     this.userBeerFeedService.getUserBeerFeed(param.id)
     .subscribe(response => {
+      this.oneUser = response.json();
       this.userBeerArray = response.json().beers;
-      console.log(this.userBeerArray);
       });
     });
   }
+
+  myProfile(){
+    return this.oneUser.id == this.currentUserService.currentUser.id;
   }
 
-
-
+}

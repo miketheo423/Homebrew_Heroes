@@ -45,18 +45,32 @@ const facebookCallback = (req, res, next) => {
 
 // POST /auth/signup 
 const postSignup = (req, res, next) => {
-	let signupStrategy = passport.authenticate('local-signup', {
-		successRedirect: process.env.FE_BASE_URL,
-		failureRedirect: process.env.FE_BASE_URL + '/welcome'
+	let signupStrategy = passport.authenticate('local-signup', (err, user) => {
+		if (err) return next(err);
+		if (!user) res.json({'message': 'That email already exists'});
+		req.logIn(user, err => {
+			if (err) return next(err);
+			console.log('signed up and logging in!');
+			res.json(user);
+		});
+		// successRedirect: process.env.FE_BASE_URL,
+		// failureRedirect: process.env.FE_BASE_URL + '/welcome'
 	});
 	return signupStrategy(req, res, next);
 };
 
 // POST /auth/login 
 const postLogin = (req, res, next) => {
-	let loginStrategy = passport.authenticate('local-login', {
-		successRedirect: process.env.FE_BASE_URL,
-		failureRedirect: process.env.FE_BASE_URL + '/welcome'
+	let loginStrategy = passport.authenticate('local-login', (err, user) => {
+		if (err) return next(err);
+		if (!user) res.json({'message': 'Incorrect username or password'});
+		req.logIn(user, err => {
+			if (err) return next(err);
+			console.log('signed up and logging in!');
+			res.json(user);
+		});
+		// successRedirect: process.env.FE_BASE_URL,
+		// failureRedirect: process.env.FE_BASE_URL + '/welcome'
 	});
 	return loginStrategy(req, res, next);
 };

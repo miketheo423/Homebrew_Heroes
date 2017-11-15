@@ -11,6 +11,10 @@
 	z-index: 2;
 }
 
+#mySidenav {
+  z-index: 1000;
+}
+
 .logo-header {
 	margin: 0;
 	color: #fff;

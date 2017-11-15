@@ -11,18 +11,6 @@ module.exports = function(passport) {
 		done(null, user);
 	});
 
-	// passport.deserializeUser((id, done) => {
-	// 	console.log('deserializeUser');
-	// 	DB.User.findById(id).then((user) => {
-	// 		if(user) {
-				
-	// 			done(null, user.get());
-	// 		} else {
-	// 			done(user.errors, null);
-	// 		}
-	// 	});
-	// });
-
 	passport.deserializeUser((obj, done) => {
 		done(null, obj);
 	});
@@ -48,6 +36,7 @@ module.exports = function(passport) {
 				console.log('creating new user');
 				DB.User.create({
 					username: 'brewer' + Math.floor(Math.random()*100000),
+					photoUrl: 'https://members.nationalgeographic.com/static-media/images/css_images/nationalGeographic_default_avatar.jpg',
 					email: profile.email,
 					googleId: profile.id
 				}).then((user) => {
@@ -57,7 +46,6 @@ module.exports = function(passport) {
 			}
 		});
 	}));
-
 
 	///////////////////////
 	// Facebook Strategy //
@@ -78,6 +66,7 @@ module.exports = function(passport) {
 				console.log('creating new user');
 				DB.User.create({
 					username: 'brewer' + Math.floor(Math.random()*100000),
+					photoUrl: 'https://members.nationalgeographic.com/static-media/images/css_images/nationalGeographic_default_avatar.jpg',
 					facebookId: profile.id
 				}).then((user) => {
 					if (err) return console.log(err);
@@ -111,6 +100,7 @@ module.exports = function(passport) {
 						let userPassword = generateHash(password);
 						let data = {
 							username: 'brewer' + Math.floor(Math.random()*100000),
+							photoUrl: 'https://members.nationalgeographic.com/static-media/images/css_images/nationalGeographic_default_avatar.jpg',
 							email: email,
 							password: userPassword
 						};

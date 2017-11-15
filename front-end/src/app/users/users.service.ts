@@ -16,5 +16,10 @@ export class UserBeerFeedService {
 		console.log(userId);
 		return this.http.get(`${this.baseUrl}/api/users/${userId}`)
 	}
+
+	editProfile(userId, editedProfile){
+		console.log(userId);
+  	return this.http.put(`${this.baseUrl}/api/users/${userId}`, editedProfile, {withCredentials: true});
+  }
  
 }

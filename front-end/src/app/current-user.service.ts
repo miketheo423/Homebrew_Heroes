@@ -37,6 +37,14 @@ export class CurrentUserService {
   	return this.currentUser.id;
   }
 
+  signup(credentials){
+  	return this.http.post(`${this.baseUrl}/auth/signup`, credentials, {withCredentials: true});
+  }
+
+  login(credentials){
+  	return this.http.post(`${this.baseUrl}/auth/login`, credentials, {withCredentials: true});
+  }
+
   logout(){
   	/* tell backend to logout user and delete frontend user */
   	this.updateCurrentUser({});

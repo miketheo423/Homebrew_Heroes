@@ -1,8 +1,13 @@
 <div class="container" *ngIf=oneBeer>
 	<div class="row content-row">
 	<div class="col-lg-5 col-md-5 col-sm-5 col-xsm-5 beer-content"> 
-		<div class="beer-photo col-xs-12"> 
+
+		<div class="beer-photo col-md-12 col-xs-12"> 
 			<div class="user-name col-lg-9 col-md-9 col-sm-9 col-xs-9">{{oneBeer.user.username}}</div>
+
+		<div class="beer-photo col-xs-12"> 
+			<div id="brewer-name" class="user-name col-lg-9 col-md-9 col-sm-9 col-xs-9"><a routerLink="/brewer/{{oneBeer.userId}}">{{oneBeer.user.username}}</a></div>
+
 		<div class="beer-image">
 			<img src="{{oneBeer.photoUrl}}" alt="" width="100%">
 		</div>
@@ -18,8 +23,8 @@
 	</div>
 	
 		<div class="col-lg-5 col-md-5 col-sm-5 col-xsm-5 beer-content bc-small">
-			<h1>{{oneBeer.name}}</h1>
-			<p>{{oneBeer.description}}</p>
+			<h1 class="beer-name-header">{{oneBeer.name}}</h1>
+			<p class="beer-descript">{{oneBeer.description}}</p>
 			<button type="button" class="btn button-search recipe-btn" data-toggle="modal" data-target="#recipe">Recipe</button>
 		</div>
 

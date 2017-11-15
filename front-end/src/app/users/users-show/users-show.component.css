@@ -30,13 +30,12 @@ html, body{
   position: fixed;
   padding-bottom: 2%;
   margin-right: 1%;
-  /*z-index: 1;*/
 }
 
 .profile-picture {
   max-width: 100%;
   margin: 0 auto;
-  margin-top: 10%;
+  margin-top: 15%;
   position: relative;
   left:11%;
   top: 7%;
@@ -59,18 +58,18 @@ html, body{
 }
 
 .city {
-  margin-top: 14rem;
+  margin-top: 10rem;
   text-align: center;
   font-size: 2rem;
 }
 
  .btn-get-started {
-  background: #03C4EB;
-  border: 2px solid #03C4EB;
+  background: #F8BB2E;
+  border: 2px solid #F8BB2E;
   color: #fff;
   padding: 2%;
   margin-left: 23%;
-  margin-top: 33%;
+  margin-top: 20%;
   -moz-box-shadow: 1px 3px 25px -6px #000;
   -webkit-box-shadow: 1px 3px 25px -6px #000;
   box-shadow: 1px 3px 25px -6px #000;
@@ -80,6 +79,26 @@ html, body{
   background: #fabc09;
   border: 2px solid #fff;
   color: #fff;
+}
+
+.edit-btn {
+  margin-top: 5%;
+  background-color: #EE2C2C;
+  border: 2px solid #FF3030;
+}
+
+.edit-btn:hover {
+  background-color: #FF3030;
+}
+
+.image-plus {
+  width: 40%;
+}
+
+.message{
+  margin-top: 5%;
+  background: #03C4EB;
+  border: 2px solid #03C4EB;
 }
 
 
@@ -134,16 +153,16 @@ html, body{
 }
 
 .go-to {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   position: absolute;
   margin-top: -50px;
   right: 20px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, .3);
   color: #fff;
-  font-size: 48px;
-  line-height: 48px;
+  font-size: 35px;
+  line-height: 41px;
   text-align: center;
   background: #F7882F;
   -webkit-transition: -webkit-transform .2s ease-in-out;
@@ -164,6 +183,11 @@ html, body{
   height: 150rem;
   margin-top: 6%;
 }
+
+/**************/
+/* responsive */
+/**************/
+
 
 @media (max-width: 470px) and (min-width: 320px){
   .profile-info {
@@ -209,6 +233,14 @@ html, body{
   }
   .image {
     max-height: 40rem;
+  }
+  .go-to {
+    width: 60px;
+    height: 60px;
+    margin-top: -45px;
+    right: 11px;
+    font-size: 50px;
+    line-height: 44px;
   }
 }
 
@@ -256,6 +288,14 @@ html, body{
   .beer-style {
     font-size: 1rem;
   }
+  .go-to {
+    width: 40px;
+    height: 40px;
+    margin-top: -45px;
+    right: 11px;
+    font-size: 32px;
+    line-height: 35px;
+  }
 
 }
 
@@ -268,10 +308,18 @@ html, body{
   }
 
   .beer-name{
-    font-size: 2.6rem;
+    font-size: 1.6rem;
   }
   .beer-style {
     font-size: 1rem;
+  }
+  .go-to {
+    width: 40px;
+    height: 40px;
+    margin-top: -45px;
+    right: 11px;
+    font-size: 32px;
+    line-height: 35px;
   }
 }
 

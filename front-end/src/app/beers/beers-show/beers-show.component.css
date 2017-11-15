@@ -15,6 +15,15 @@ p {
 	margin-bottom: 7em;
 }
 
+#brewer-name {
+  z-index: 1;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
 .buttons {
   display: inline-block;
 }
@@ -45,7 +54,7 @@ p {
   height: 15%;
   position: absolute;
   margin-left: 8%;
-  margin-top: 75%;
+  margin-top: 83%;
   font-family: "Raleway", sans-serif;
   font-size: 2rem;
   -moz-box-shadow: 1px 3px 25px -6px #000;
@@ -56,20 +65,31 @@ p {
 .beer-content {
 	text-align: center;
 	padding: 20px;
+  margin-left: -5%;
 }
 
 .beer-photo {
-	max-height: 25em;
-	overflow: hidden;
+	max-height: 30em;
+	
 	/*width: 30em;*/
 }
 
 .beer-traits {
 	padding-top: 1em;
+  margin-top: 7%;
+  margin-left: 2%;
+}
+
+.beer-name-header {
+  margin-top: 17%;
 }
 
 .recipe-btn {
 	margin-top: 3em;
+}
+
+.modal-body {
+  white-space: pre-wrap;
 }
 
  .button-search a {
@@ -112,37 +132,44 @@ p {
     }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 359px) {
+@media only screen and (min-width: 320px) and (max-width: 375px) {
 	.beer-photo {
-		margin-left: 1em; 
 		height: 22em;
 		width: 22em;
+    right: 5%;
 	}
 
   .user-name {
     margin-top: 80%;
   }
+  .beer-content{
+    margin: 0;
+  }
 
 }
 
-@media only screen and (min-width: 360px) and (max-width: 414px) {
+@media only screen and (min-width: 361px) and (max-width: 768px) {
 	.beer-photo {
 		height: 24em;
 		width: 24em; 
+    right: 7%;
 	}
 
   .beer-image {
-    right:15%;
+    margin-left:5%;
   }
 
   .user-name {
     margin-top: 82%;
   }
+  .beer-content{
+    margin:21px;
+  }
 }
 
-@media only screen and (min-width: 412px) and (max-width: 700px) {
+@media only screen and (min-width: 412px) and (max-width: 768px) {
 	.beer-photo {
-		margin-left: 2.8em;
+		margin-left: 1.4em;
 		height: 24em;
 		width: 24em; 
 	}
@@ -151,9 +178,24 @@ p {
     margin-top: 75%;
     margin-right: 8%;
   }
+  .beer-name-header{
+    margin-top: 0;
+  }
 }
 
-@media only screen and (min-width: 700px) and (max-width: 1200px) {
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .beer-photo {
+    margin-top: 30%;
+  }
+  .user-name{
+    padding-top: 2%;
+  }
+  .beer-traits {
+    margin-top: 16%;
+  }
+  .beer-name-header{
+    margin-top: 27%;
+  }
 	
 }
 

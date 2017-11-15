@@ -28,27 +28,27 @@
 
 						<div class="or"> OR </div>
 
-						<form method="POST" action="{{BASE_URL}}/auth/login">
+						<form (ngSubmit)="login()">
 						  <div class="form-group">
-						    <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+						    <input [(ngModel)]="loginForm.email" type="text" name="email" class="form-control" id="email" placeholder="Email">
 						  </div>
 						  <div class="form-group">
-						    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+						    <input [(ngModel)]="loginForm.password" type="password" name="password" class="form-control" id="password" placeholder="Password">
 						  </div>
-						  <input class="btn btn-primary login" type="submit" value="Login">
+						  <input class="btn btn-primary login" type="submit" value="Login" data-toggle="modal" data-target="#myModal">
 						</form>
 
                         </div>
                         <div role="tabpanel" class="tab-pane" id="sign-up">
 
-                        	<form method="POST" action="{{BASE_URL}}/auth/signup">
+                        	<form (ngSubmit)="signup()">
                         	  <div class="form-group">
-                        	    <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+                        	    <input [(ngModel)]="signupForm.email" type="text" name="email" class="form-control" id="email" placeholder="Email">
                         	  </div>
                         	  <div class="form-group">
-                        	    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                        	    <input [(ngModel)]="signupForm.password" type="password" name="password" class="form-control" id="password" placeholder="Password">
                         	  </div>
-                        	  <input class="btn btn-primary login" type="submit" value="Signup">
+                        	  <input class="btn btn-primary login" type="submit" value="Signup" data-toggle="modal" data-target="#myModal">
                         	</form>
 
                         </div>
