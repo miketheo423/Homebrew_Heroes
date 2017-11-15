@@ -108,8 +108,10 @@ Danny’s Suggestions:
 
 ## Documentation:
 <details>
-<summary>### Front-end routes (`app-routing.module.ts`):</summary>
-<br>
+<summary>Frontend routes:</summary>
+  
+### Front-end routes (`app-routing.module.ts`)
+
 * `/welcome` - Landing page w/loggin and signup options
 * `/` - Feed page, redirect to `welcome` if not logged in
 * `/beers` -  also shows Feed Page
@@ -121,8 +123,10 @@ Danny’s Suggestions:
 </details>
 
 <details>
-<summary>### Beer API Routes @ `/api/beers`</summary>
-<br>
+<summary>Beer API Routes:</summary>
+  
+### Beer API Routes @ `/api/beers`
+  
 Test with `cd backend && mocha` 
 (seed database first to pass index and show routes)
 
@@ -193,8 +197,10 @@ Respond with the success json message: `{"message":"Beer deleted"}`
 </details>
 
 <details>
-<summary>### User API Routes @ `/api/users`</summary>
-<br>
+<summary>User API routes: </summary>
+
+### User API Routes @ `/api/users`
+
 1) **`GET /api/users`** - User index route for searching users
 Responds with an array of all users and their `usersname`, `photoUrl`, and `id`.
 
