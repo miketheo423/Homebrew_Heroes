@@ -1,9 +1,9 @@
 <div class="container">
-<form (ngSubmit)="saveBeer()" class="col-sm-6">
+<form (ngSubmit)="saveBeer(newBeerForm.valid)" class="col-sm-6" #newBeerForm="ngForm">
 	<h2>New Brew:</h2>
 	<div class="form-group">
 		<label for="name">Name:</label>
-		<input [(ngModel)]="newBeer.name" type="text" name="name" id="name" class="form-control" required />
+		<input [(ngModel)]="newBeer.name" type="text" name="name" id="name" class="form-control" required ngModel />
 	</div>
 	<div class="form-group">
 		<label for="style">Style:</label>
