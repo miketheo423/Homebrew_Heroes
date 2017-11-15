@@ -37,6 +37,7 @@
 						  </div>
 						  <input [disabled]="validLogin()" class="btn btn-primary login" type="submit" value="Login" data-toggle="modal" data-target="#myModal">
 						</form>
+                        <div [style.display]="loginMessage ? 'block' : 'none'" class="alert alert-warning" role="alert">{{loginMessage}}</div>
 
                         </div>
                         <div role="tabpanel" class="tab-pane" id="sign-up">
@@ -50,7 +51,7 @@
                         	  </div>
                         	  <input [disabled]="validSignup()" class="btn btn-primary login" type="submit" value="Signup" data-toggle="modal" data-target="#myModal">
                         	</form>
-
+                            <div [style.display]="signupMessage ? 'block' : 'none'" class="alert alert-warning" role="alert">{{signupMessage}}</div>
                         </div>
                     </div>
                 </div>

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-modal.component.css']
 })
 export class LoginModalComponent implements OnInit {
+  /* INIT FORM AND ALERT DATA */
   signupForm = {
     email: '',
     password: ''
@@ -17,8 +18,8 @@ export class LoginModalComponent implements OnInit {
     email: '',
     password: ''
   }
-  loginMessage = "";
-  signupMessage = "";
+  loginMessage: string;
+  signupMessage: string;
 
 	BASE_URL = "";
 
@@ -28,7 +29,12 @@ export class LoginModalComponent implements OnInit {
   	if (isDevMode()) {
   	 	this.BASE_URL = 'http://localhost:3000'
   	}
+    this.loginMessage = "";
+    this.signupMessage = "";
   }
+
+
+  /* LOGIN & SIGNUP METHODS */
 
   signup(){
     this.currentUserService.signup(this.signupForm).subscribe(response => {
@@ -54,7 +60,11 @@ export class LoginModalComponent implements OnInit {
     })
   }
 
+
+  /* VALIDATION AND ALERTS */
+
   validLogin(){
+    // TODO: Check email is valid format ie xxx@xxx.xx
     if (this.loginForm.email && this.loginForm.password){
       this.loginMessage = "";
       return false;
@@ -65,6 +75,7 @@ export class LoginModalComponent implements OnInit {
   }
 
   validSignup(){
+    // TODO: Check email is valid format ie xxx@xxx.xx
     if (this.signupForm.email && this.signupForm.password){
       this.signupMessage = "";
       return false;
@@ -73,6 +84,4 @@ export class LoginModalComponent implements OnInit {
       return true;
     }
   }
-  
-
 }
