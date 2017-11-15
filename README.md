@@ -19,6 +19,13 @@ Users are able to search through a beer-feed that displays all the beers that ar
 ### Trello
 https://trello.com/b/GoDxD5lz/homebrew-heroes
 
+### Wireframes
+![image uploaded from ios 1](https://user-images.githubusercontent.com/22715776/32858344-73c5f33a-ca08-11e7-9592-f06417dc2b27.jpg)
+
+![image uploaded from ios](https://user-images.githubusercontent.com/22715776/32858300-4f1f66ba-ca08-11e7-9ddf-f89d85fabc32.jpg)
+
+![image uploaded from ios 2](https://user-images.githubusercontent.com/22715776/32858302-5125d868-ca08-11e7-83f8-db066f82762c.jpg)
+
 ### User Research
 We just so happened to be friends with a homebrewer that has been brewing for about 10 years. We asked him some questions to 
 help gather what features a homebrewer would want in an app. 
