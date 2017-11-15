@@ -5,9 +5,16 @@
 <section id="header">
 	<div class="container-fluid logo-header">
 		<div class="row logo-header">
-			<div class="col-lg-6 col-xs-9 logo">Homebrew Heroes</div>
-			<div class="user col-lg-6"><i onclick="openNav()" class="fa fa-user-circle fa-3x" aria-hidden="true"></i></div>
+			<a routerLink="/" onclick="closeNav()"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-9 logo">Homebrew Heroes</div>
+				</a>
+			
+			<div class="nav-head-block col-lg-5 col-md-5 col-sm-5">
+				<a class="nav-head" routerLink="/" onclick="closeNav()">Beer-feed</a>
+				<a class="nav-head" href="" (click)="logout()" onclick="closeNav()">Log-Out</a>
+			</div>
+			<div class="user col-lg-1 col-md-1 col-sm-1"><i onclick="openNav()" class="fa fa-user-circle fa-3x" aria-hidden="true"></i></div>
 		</div>
+		
 	</div>
 </section>
 
