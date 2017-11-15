@@ -242,7 +242,14 @@
   }
 
   .mobile-section {
-    height: 50rem;
+    height: 53rem;
+    margin-bottom: 5%;
+
+  }
+  .header-mobile-text {
+    margin-bottom: 6%;
+    padding-top: 2%;
+    font-size: 1.5rem;
   }
 }
 
