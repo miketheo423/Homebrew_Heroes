@@ -1,8 +1,6 @@
 # Homebrew_Heroes
+Homebrew heroes offers a way for homebrewers to showcase their creations to people in the homebrew community. Try it [HERE](http://homebrew-heroes.herokuapp.com) 
 
-## What is it?
-
-Homebrew heroes offers a way for homebrewers to showcase their creations to people in the homebrew community. 
 
 ## How does it work?
 
@@ -108,8 +106,131 @@ Danny’s Suggestions:
 9. run npm install
 10. run ng serve --open
 
-## Contributors
-- Ryan Elliot
-- Wes Hebert
-- Michael Theodorou
+## Documentation:
+<details>
+<summary>### Front-end routes (`app-routing.module.ts`):</summary>
+<br>
+* `/welcome` - Landing page w/loggin and signup options
+* `/` - Feed page, redirect to `welcome` if not logged in
+* `/beers` -  also shows Feed Page
+* `/beers/new` - for adding new beers
+* `/beers/:id` - show route for individual beer
+* `/beers/edit/:id` - edit route for beers
+* `/brewer/:name` - user profile pages
+* `/brewer/edit` - for a user to edit their own profile
+</details>
 
+<details>
+<summary>### Beer API Routes @ `/api/beers`</summary>
+<br>
+Test with `cd backend && mocha` 
+(seed database first to pass index and show routes)
+
+Available routes:
+1) **GET `/api/beers`** - index / beer feed
+Responds with ALL beers in database from newest to oldest.
+Only includes the fields required for the beer preview cards.
+Response:
+```
+{beers: [
+  {
+    name: 'beer name',
+    photoUrl: "http://www.image.com/image.jpg",
+    style: "IPA",
+    id: #,
+    user: {
+      username: "user name",
+      id: #
+    }
+  },
+  {. . .}
+]}
+```
+
+2) **GET `/api/beers/:id`** - show / beer detail page
+Respond with the full details of a single beer
+Response:
+```
+{
+  id: #,
+  photoUrl: "imageUrl",
+  name: "Beer Name,
+  style: "Beer Style",
+  abv: "#",
+  ibus: "#",
+  description: "Description",
+  recipe: "Recipie",
+  createdAt: "2017-11-10T04:33:35.225Z",
+  updatedAt: "2017-11-10T04:33:35.225Z",
+  userId: #,
+  user: {
+    id: #,
+    username: "User Name",
+    email: "Email",
+    firstName: "Name",
+    lastName: "Name",
+    zipcode: "#",
+    photoUrl: "imageUrl",
+    createdAt: "2017-11-10T04:33:35.111Z",
+    updatedAt: "2017-11-10T04:33:35.111Z"
+  }
+}
+```
+
+3) **POST `/api/beers`** - Create a new beer
+Post the new beer information in the request body.
+Respond with the newly created beer.
+***REMEMBER to add the userId when creating***
+
+4) **PUT `/api/beers/:id`** - Update a beer
+Update the attributes in the request body. 
+It is not necessary to send all fields. Only need the ones that are being updated.
+Respond with the updated beer.
+
+5) **DELETE `/api/beers/:id`** - Delete a beer
+Delete the beer with the given ID.
+Respond with the success json message: `{"message":"Beer deleted"}`
+</details>
+
+<details>
+<summary>### User API Routes @ `/api/users`</summary>
+<br>
+1) **`GET /api/users`** - User index route for searching users
+Responds with an array of all users and their `usersname`, `photoUrl`, and `id`.
+
+2) **`GET /api/users/:id`** - User show route for user profiles
+Responds with the relevant user information and an array of their beers:
+```
+{
+username: "username",
+createdAt: "2017-11-10T23:23:12.192Z",
+updatedAt: "2017-11-10T23:23:12.192Z",
+firstName: "first",
+lastName: "last",
+photoUrl: "url",
+beers: [
+  {
+    name: "name",
+    photoUrl: "url",
+    style: "style",
+    id: #
+  },
+  { ... }
+]
+}
+```
+3) **`PUT /api/users/`** - Edit a user's profile information
+Pass the informatin to be updated in the request `body`. 
+The updates will be applied to the ***currently logged in user***. (user Id not needed)
+Responds with a success message.
+</details>
+
+
+## Contributors
+- Ryan Elliott - [GitHub](https://github.com/ryan104)
+- Wes Hebert - [GitHub](https://github.com/weshebert20)
+- Michael Theodorou - [GitHub](https://github.com/miketheo423)
+
+Special Thanks:
+Juwon and Jeff (UX Consultation)
+Dan and any other homebrewers who have provided feedback
