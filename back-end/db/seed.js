@@ -236,7 +236,7 @@ const seedBeers5 = [
 		userId: ''
 	},
 	{
-		photoUrl: 'https://cdnimg.webstaurantstore.com/uploads/buying_guide/2017/2/berliner-weisse.jpg', 
+		photoUrl: 'https://centralbrew.com.br/image/cache/catalog/Categorias/receitas%20tradicionais/English_Ordinary_Bitter-500x500.jpg', 
 		name: 'Pucker Up',
 		style: 'Sour',
 		abv: '6.2',

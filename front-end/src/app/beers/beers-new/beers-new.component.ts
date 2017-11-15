@@ -54,7 +54,7 @@ export class BeersNewComponent implements OnInit {
  		} else if (IPAS.includes(style)) {
  			photoUrl = "https://www.mrbeer.com/media/catalog/product/cache/2/thumbnail/9df78eab33525d08d6e5fb8d27136e95/b/e/beer-amber-pintulw_4.jpg"
  		} else if (sours.includes(style)) {
- 			photoUrl = "https://cdnimg.webstaurantstore.com/uploads/buying_guide/2017/2/berliner-weisse.jpg"
+ 			photoUrl = "https://centralbrew.com.br/image/cache/catalog/Categorias/receitas%20tradicionais/English_Ordinary_Bitter-500x500.jpg"
  		} else {
  			photoUrl = "https://www.displayfakefoods.com/store/pc/catalog/2359-lg.jpg"
  		}

@@ -13,6 +13,7 @@
 
 #mySidenav {
   z-index: 1000;
+  font-family: 'Old Standard TT', serif;
 }
 
 .logo-header {
@@ -26,6 +27,7 @@
 	font-size: 4rem;
 	font-family: 'Old Standard TT', serif;
 	margin-top: .7%;
+  color: white;
 }
 
 .fa-user-circle {
@@ -34,6 +36,24 @@
 
 .user {
 	margin-top: .9%;
+}
+
+.nav-head-block {
+  margin-top: 2.0%;
+}
+
+.nav-head{
+  color: white;
+  margin-left: 6%;
+  float: right;
+  font-size: 1.8rem;
+  text-decoration: none;
+  font-family: 'Old Standard TT', serif;
+}
+
+.nav-head:hover{
+  color: #fabc09;
+
 }
 
 @media (max-width: 321px){
@@ -104,4 +124,18 @@
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+
+
+@media (max-width: 900px){
+  .nav-head-block{
+    margin-top: 3%;
+  }
+}
+
+@media(max-width: 768px){
+  .nav-head-block{
+    display: none;
+  }
 }
