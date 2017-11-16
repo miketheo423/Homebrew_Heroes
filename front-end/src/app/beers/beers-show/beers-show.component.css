@@ -16,12 +16,12 @@ p {
 }
 
 #brewer-name {
-  z-index: 1;
 }
 
 a {
   text-decoration: none;
   color: white;
+  z-index: 1;
 }
 
 .buttons {
@@ -70,6 +70,7 @@ a {
 
 .beer-photo {
 	max-height: 30em;
+  z-index: 1;
 	
 	/*width: 30em;*/
 }
