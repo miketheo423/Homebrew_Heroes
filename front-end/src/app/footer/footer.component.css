@@ -2,6 +2,17 @@
 /* Footer */
 /**********/
 
+#about {
+	text-decoration: none;
+	color: white;
+	padding-left: 4em;
+}
+
+#about:hover {
+	text-decoration: underline;
+	color: #fabc09;
+}
+
 #footer {
   width: 100%;
   background: #374353;
