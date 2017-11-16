@@ -12,7 +12,7 @@ export class BeerFeedPageComponent implements OnInit {
 	beerArray = [];
   style = "";
 
-  constructor(private beerFeedService: BeerFeedService) { }
+  constructor(public beerFeedService: BeerFeedService) { }
 
   ngOnInit() {
   	this.beerFeedService.getBeerFeed().subscribe(response => {
