@@ -23,6 +23,7 @@ import { BeerCardComponent } from './beer-card/beer-card.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HeaderComponent } from './header/header.component';
     BeerCardComponent,
     FooterComponent,
     HeaderComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
