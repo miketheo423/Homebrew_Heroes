@@ -25,13 +25,14 @@ export class BeersEditComponent implements OnInit {
   	})
   }
 
-  editBeer() {
-  	this.beersService.editBeer(this.editedBeer.id, this.editedBeer)
-  	.subscribe(response => {
-  		console.log(response);
-  		let beer = response.json();
-  		window.location.href = "/beers/" + beer.id;
-  	})
+  editBeer(valid) {
+    if (valid){
+      this.beersService.editBeer(this.editedBeer.id, this.editedBeer)
+      .subscribe(response => {
+        console.log(response);
+        let beer = response.json();
+        window.location.href = "/beers/" + beer.id;
+      })
+    }
   }
-
 }

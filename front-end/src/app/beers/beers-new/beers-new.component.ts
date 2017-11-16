@@ -23,16 +23,22 @@ export class BeersNewComponent implements OnInit {
   ngOnInit() {
   }
 
- 	saveBeer(){
- 		this.newBeer.photoUrl = this.checkStyle(this.newBeer.style)
- 		this.beersService.createBeer(this.newBeer)
- 			.subscribe(response => {
- 				console.log(response.json());
- 				if (response.json().name === this.newBeer.name){
- 					this.router.navigate(['/beers/' + response.json().id]);
- 					// window.location.href = '/beers';
- 				}
- 			})
+ 	saveBeer(valid){
+ 		if (valid){
+ 			// check form validation
+	 		this.newBeer.photoUrl = this.checkStyle(this.newBeer.style)
+	 		this.beersService.createBeer(this.newBeer)
+	 			.subscribe(response => {
+	 				console.log(response.json());
+	 				if (response.json().name === this.newBeer.name){
+	 					this.router.navigate(['/beers/' + response.json().id]);
+	 					// window.location.href = '/beers';
+	 				}
+	 			})
+ 		} else {
+ 			
+ 		}
+
  	}
 
  	checkStyle(style) {

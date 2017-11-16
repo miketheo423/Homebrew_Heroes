@@ -16,10 +16,8 @@ import { AuthGuard } from './auth.guard';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { SignUpModalComponent } from './sign-up-modal/sign-up-modal.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { BeerFeedPageComponent } from './beer-feed-page/beer-feed-page.component';
-import { BeerCardComponent } from './beer-card/beer-card.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -28,10 +26,8 @@ import { HeaderComponent } from './header/header.component';
   declarations: [
     AppComponent,
     LandingPageComponent,
-    SignUpModalComponent,
     LoginModalComponent,
     BeerFeedPageComponent,
-    BeerCardComponent,
     FooterComponent,
     HeaderComponent,
   ],

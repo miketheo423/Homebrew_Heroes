@@ -28,7 +28,7 @@
   			  <input [(ngModel)]="editedProfile.photoUrl" name="photoUrl" type="text" class="form-control" id="photoURL" placeholder="URL">
   			</div>
       <div class="modal-footer">
-        <input type="submit" value="Save Changes" class="btn btn-primary">
+        <input [disabled]="!(editedProfile.username)" type="submit" value="Save Changes" class="btn btn-primary">
       </div>
       </form>
     </div>
