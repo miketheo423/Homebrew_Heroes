@@ -1,5 +1,5 @@
 <div class="container">
-<form (ngSubmit)="editBeer()" class="col-sm-6">
+<form (ngSubmit)="editBeer(editBeerForm.valid)" class="col-sm-6" #editBeerForm="ngForm">
 	<h2>Edit Brew:</h2>
 	<div class="form-group">
 		<label for="name">Name:</label>
@@ -47,4 +47,5 @@
 	<input type="submit" value="SAVE" class="btn btn-primary">
 
 </form>
+<div [hidden]="editBeerForm.valid" class="alert alert-warning">Please give your beer a <i>name</i> and <i>style</i></div>
 </div>

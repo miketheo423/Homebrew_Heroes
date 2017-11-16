@@ -12,6 +12,7 @@ import { UsersEditComponent } from './users/users-edit/users-edit.component';
 import { BeersShowComponent } from './beers/beers-show/beers-show.component';
 import { BeersEditComponent } from './beers/beers-edit/beers-edit.component';
 import { BeersNewComponent } from './beers/beers-new/beers-new.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
 	{
@@ -65,6 +66,10 @@ const routes: Routes = [
 				canActivate: [AuthGuard]
 			}
 		]
+	},
+	{
+		path: 'about',
+		component: AboutComponent
 	},
 
 	// all others redirect to beer feed
